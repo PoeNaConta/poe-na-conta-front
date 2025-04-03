@@ -1,0 +1,33 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  "compilerOptions": {
+    "types": ["node", "vitest", "@vitest/browser/providers/playwright"],
+    "baseUrl": "./",
+    "outDir": "./dist/",
+    "paths": {
+      "@pages/*": ["./src/pages/*"],
+      "@tests/*": ["./tests/*"]
+    },
+    "esModuleInterop": true,
+    "module": "ES2015",
+    "moduleResolution": "bundler",
+    "forceConsistentCasingInFileNames": true,
+    "target": "ES2015",
+    "jsx": "react",
+    "noEmit": false,
+    "declaration": true,
+    "emitDeclarationOnly": false,
+    "rootDirs": ["src", "test"],
+    "incremental": true
+  },
+  "include": ["./**/*.ts", "./**/*.tsx"],
+  "exclude": ["node_modules", "dist"]
+}

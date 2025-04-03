@@ -1,0 +1,18 @@
+CYAN="\033[36m"
+GREEN="\033[32m"
+ENDCOLOR="\033[0m"
+
+# echo -ne "\n${CYAN}Checking for syntax errors...${ENDCOLOR}"
+echo "\n${CYAN}Checking for syntax errors...${ENDCOLOR}"
+npm run typescript:check
+
+echo "\n${CYAN}Fixing formatting and checking for linting errors...${ENDCOLOR}"
+npx lint-staged
+
+echo "\n${CYAN}Running unit tests...${ENDCOLOR}"
+npm run test:unit
+
+echo "\n${CYAN}Running mutation tests...${ENDCOLOR}"
+npm run test:mutation
+
+echo "\n${GREEN}Done!${ENDCOLOR}"
