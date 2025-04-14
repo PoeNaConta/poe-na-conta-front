@@ -17,6 +17,7 @@ export default defineConfig({
     environment: 'jsdom',
     exclude: ['./.stryker-tmp/*', './node_modules/*'],
     setupFiles: ['./tests/unit/config//vitest.setup.ts'],
+    globals: true,
     coverage: {
       enabled: true,
       // provider: "istanbul",

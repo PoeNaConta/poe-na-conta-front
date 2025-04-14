@@ -9,7 +9,7 @@
     }
   ],
   "compilerOptions": {
-    "types": ["node", "vitest", "@vitest/browser/providers/playwright"],
+    "types": ["node", "vitest", "@vitest/browser/providers/playwright", "vitest/globals"],
     "baseUrl": "./",
     "outDir": "./dist/",
     "paths": {
