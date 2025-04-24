@@ -9,11 +9,12 @@
     }
   ],
   "compilerOptions": {
-    "types": ["node", "vitest", "@vitest/browser/providers/playwright", "vitest/globals"],
+    "types": ["node", "vitest", "vitest/globals"],
     "baseUrl": "./",
     "outDir": "./dist/",
     "paths": {
       "@pages/*": ["./src/pages/*"],
+      "@components/*": ["./src/components/*"],
       "@tests/*": ["./tests/*"]
     },
     "esModuleInterop": true,
@@ -28,6 +29,6 @@
     "rootDirs": ["src", "test"],
     "incremental": true
   },
-  "include": ["./**/*.ts", "./**/*.tsx"],
+  "include": ["./**/*.ts", "./**/*.css", "./**/*.tsx"],
   "exclude": ["node_modules", "dist"]
 }

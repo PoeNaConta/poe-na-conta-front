@@ -10,6 +10,7 @@ export default defineConfig({
     alias: {
       src: path.resolve(__dirname, './src/'),
       '@pages': path.resolve(__dirname, './src/pages/'),
+      '@components': path.resolve(__dirname, './src/components/'),
       '@tests': path.resolve(__dirname, './tests/'),
     },
   },
@@ -21,7 +22,15 @@ export default defineConfig({
     coverage: {
       enabled: true,
       // provider: "istanbul",
-      exclude: ['dist/**', '**.{config,workspace}.*{js,ts}', './.stryker-tmp/**', './src/main.tsx'],
+      exclude: [
+        'dist/**',
+        '**/*.d.ts',
+        '**.{config,workspace}.*{js,ts}',
+        './stryker-tmp/**',
+        'stryker-tmp/**',
+        '.stryker-tmp/**',
+        './src/main.tsx',
+      ],
       reportsDirectory: './reports/unit',
       thresholds: {
         statements: 90,
