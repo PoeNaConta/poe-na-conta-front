@@ -1,0 +1,25 @@
+:root {
+  --lds-color-brand: #193c74;
+  --lds-color-dark: #1e1e1e;
+  --lds-color-dark-light: #757575;
+  --lds-color-gray: #b3b3b3;
+  --lds-color-white: #f5f5f5;
+
+  --lds-radius: 8px;
+  --lds-radius-xl: 20px;
+
+  --lds-fontfamily-sans: Inter, sans-serif;
+  --lds-fontfamily-serif: sans-serif;
+
+  --lds-fontsize-xs: 12px;
+  --lds-fontsize-sm: 14px;
+  --lds-fontsize-md: 16px;
+  --lds-fontsize-lg: 24px;
+  --lds-fontsize-xl: 32px;
+
+  --lds-text-color-primary: var(--lds-color-brand);
+  --lds-text-color-default: var(--lds-color-dark);
+  --lds-text-color-secondary: var(--lds-color-dark-light);
+  --lds-text-color-tertiary: var(--lds-color-gray);
+  --lds-text-color-onbrand: var(--lds-color-white);
+}
