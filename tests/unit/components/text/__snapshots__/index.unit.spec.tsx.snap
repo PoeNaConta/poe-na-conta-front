@@ -1,0 +1,191 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Text > should render as { onBrand: true } 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--onbrand lds--text--md"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render as { primary: true } 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--primary lds--text--md"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render as { secondary: true } 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--secondary lds--text--md"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render as { tertiary: true } 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--tertiary lds--text--md"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render element as h1 1`] = `
+<div>
+  <h1
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </h1>
+</div>
+`;
+
+exports[`Text > should render element as h2 1`] = `
+<div>
+  <h2
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </h2>
+</div>
+`;
+
+exports[`Text > should render element as h3 1`] = `
+<div>
+  <h3
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </h3>
+</div>
+`;
+
+exports[`Text > should render element as h4 1`] = `
+<div>
+  <h4
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </h4>
+</div>
+`;
+
+exports[`Text > should render element as h5 1`] = `
+<div>
+  <h5
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </h5>
+</div>
+`;
+
+exports[`Text > should render element as h5 2`] = `
+<div>
+  <h5
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </h5>
+</div>
+`;
+
+exports[`Text > should render element as p 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render element as span 1`] = `
+<div>
+  <span
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </span>
+</div>
+`;
+
+exports[`Text > should render with default props 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--md"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render with size hero 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--hero"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render with size l 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--l"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render with size m 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--m"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render with size s 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--s"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render with size xl 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--xl"
+  >
+    example text
+  </p>
+</div>
+`;
+
+exports[`Text > should render with size xs 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--default lds--text--xs"
+  >
+    example text
+  </p>
+</div>
+`;
