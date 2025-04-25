@@ -6,17 +6,26 @@
   "incrementalFile": "reports/mutation/stryker-incremental.json",
   "checkers": ["typescript"],
   "tsconfigFile": "tsconfig.json",
-  "ignorePatterns": ["docs", ".husky", ".vscode", "src/main.tsx", "src/App.tsx"],
+  "ignorePatterns": [
+    "docs",
+    ".husky",
+    ".vscode",
+    "src/main.tsx",
+    "src/App.tsx"
+  ],
   "reporters": ["progress", "clear-text", "html"],
   "htmlReporter": {
     "fileName": "reports/mutation/mutation.html"
   },
-  "concurrency": 1,
-  "coverageAnalysis": "off",
+  "concurrency": 7,
+  "coverageAnalysis": "perTest",
   "thresholds": {
     "high": 100,
     "low": 90,
     "break": 90
   },
+  "mutate": ["./src/**/*.{js,ts,tsx}"],
+  "disableTypeChecks": "{test,src,lib}/**/*.{js,ts,jsx,tsx,html,vue,cts,mts}",
+  "tempDirName": ".stryker-tmp",
   "cleanTempDir": true
 }
