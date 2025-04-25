@@ -1,0 +1,47 @@
+.lds--text {
+  font-family: var(--lds-fontfamily-sans);
+}
+
+.lds--text--xs {
+  font-size: var(--lds-fontsize-xs);
+}
+
+.lds--text--sm {
+  font-size: var(--lds-fontsize-sm);
+}
+
+.lds--text--md {
+  font-size: var(--lds-fontsize-md);
+}
+
+.lds--text--lg {
+  font-size: var(--lds-fontsize-lg);
+}
+
+.lds--text--xl {
+  font-size: var(--lds-fontsize-xl);
+}
+
+.lds--text--hero {
+  font-size: var(--lds-fontsize-hero);
+}
+
+.lds--text--default {
+  color: var(--lds-text-color-default);
+}
+
+.lds--text--primary {
+  color: var(--lds-text-color-primary);
+}
+
+.lds--text--secondary {
+  color: var(--lds-text-color-secondary);
+}
+
+.lds--text--tertiary {
+  color: var(--lds-text-color-tertiary);
+}
+
+.lds--text--onbrand {
+  color: var(--lds-text-color-onbrand);
+}
