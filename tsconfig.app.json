@@ -23,12 +23,11 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
-
     "paths": {
       "@pages/*": ["./src/pages/*"],
       "@tests/*": ["./tests/*"]
     }
   },
-  "include": ["./src"],
+  "include": ["./src/"],
   "exclude": ["dist"]
 }
