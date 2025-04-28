@@ -1,8 +1,16 @@
 :root {
+  --lds-color-brand-dark: #163465;
   --lds-color-brand: #193c74;
+  --lds-color-brand-light: #1f4a8f;
+
   --lds-color-dark: #1e1e1e;
   --lds-color-dark-light: #757575;
+
+  --lds-color-gray-dark: #999999;
   --lds-color-gray: #b3b3b3;
+  --lds-color-gray-light: #cdcdcd;
+
+  --lds-color-white-dark: #e6e6e6;
   --lds-color-white: #f5f5f5;
 
   --lds-radius: 8px;
