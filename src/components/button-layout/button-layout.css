@@ -1,0 +1,21 @@
+.lds--button-layout {
+  display: flex;
+  gap: 4px;
+}
+
+.lds--button-layout--row {
+  flex-direction: row;
+}
+
+.lds--button-layout--column {
+  flex-direction: column;
+}
+
+.lds--button-layout--column > * {
+  width: fit-content;
+}
+
+.lds--button-layout--full-width > * {
+  flex-grow: 1;
+  width: auto;
+}

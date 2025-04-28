@@ -1,0 +1,76 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`ButtonLayout > should render button layout with direction { column: true } 1`] = `
+<div>
+  <div
+    class="lds--button-layout lds--button-layout--column lds--button-layout--full-width"
+  >
+    <button>
+      example primary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction { row: true } 1`] = `
+<div>
+  <div
+    class="lds--button-layout lds--button-layout--row lds--button-layout--full-width"
+  >
+    <button>
+      example primary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with fullWidth=false 1`] = `
+<div>
+  <div
+    class="lds--button-layout  "
+  >
+    <button>
+      example primary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with fullWidth=true 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width"
+  >
+    <button>
+      example primary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with primary button 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width"
+  >
+    <button>
+      example primary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with secondary button 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
