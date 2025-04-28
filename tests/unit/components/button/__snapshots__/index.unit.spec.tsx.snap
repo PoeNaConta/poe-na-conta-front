@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Button > should not render button of type secondary 1`] = `
+<div>
+  <button
+    class="lds--button undefined"
+  >
+    example button
+  </button>
+</div>
+`;
+
+exports[`Button > should render button of type secondary 1`] = `
+<div>
+  <button
+    class="lds--button lds--button--primary"
+  >
+    example button
+  </button>
+</div>
+`;
+
+exports[`Button > should render button of type secondary 2`] = `
+<div>
+  <button
+    class="lds--button lds--button--secondary"
+  >
+    example button
+  </button>
+</div>
+`;
+
+exports[`Button > should render fake button 1`] = `
+<div>
+  <button
+    class="lds--button lds--button--primary"
+  >
+    example button
+  </button>
+</div>
+`;

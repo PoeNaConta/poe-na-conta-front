@@ -1,0 +1,41 @@
+.lds--button {
+  font-family: var(--lds-fontfamily-sans);
+  font-size: var(--lds-fontsize-md);
+
+  border-radius: var(--lds-radius);
+  box-sizing: border-box;
+
+  padding: 12px;
+
+  cursor: pointer;
+}
+
+.lds--button--primary {
+  color: var(--lds-text-color-onbrand);
+  background-color: var(--lds-color-brand);
+  border: 1px solid var(--lds-color-brand);
+}
+
+.lds--button--primary:hover {
+  background-color: var(--lds-color-brand-light);
+  border: 1px solid var(--lds-color-brand-light);
+}
+
+.lds--button--primary:active {
+  background-color: var(--lds-color-brand-dark);
+  border: 1px solid var(--lds-color-brand-dark);
+}
+
+.lds--button--secondary {
+  color: var(--lds-text-color-default);
+  background-color: transparent;
+  border: 1px solid var(--lds-color-dark);
+}
+
+.lds--button--secondary:hover {
+  background-color: var(--lds-color-white-dark);
+}
+
+.lds--button--secondary:active {
+  background-color: var(--lds-color-gray-light);
+}
