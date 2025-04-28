@@ -1,6 +1,5 @@
 .lds--button-layout {
   display: flex;
-  gap: 4px;
 }
 
 .lds--button-layout--row {
@@ -18,4 +17,36 @@
 .lds--button-layout--full-width > * {
   flex-grow: 1;
   width: auto;
+}
+
+.lds--button-layout--spacing--xxs {
+  gap: var(--lds-spacing-xxs);
+}
+
+.lds--button-layout--spacing--xs {
+  gap: var(--lds-spacing-xs);
+}
+
+.lds--button-layout--spacing--sm {
+  gap: var(--lds-spacing-sm);
+}
+
+.lds--button-layout--spacing--md {
+  gap: var(--lds-spacing-md);
+}
+
+.lds--button-layout--spacing--lg {
+  gap: var(--lds-spacing-lg);
+}
+
+.lds--button-layout--spacing--xl {
+  gap: var(--lds-spacing-xl);
+}
+
+.lds--button-layout--spacing--xxl {
+  gap: var(--lds-spacing-xxl);
+}
+
+.lds--button-layout--spacing--xxs {
+  gap: var(--lds-spacing-xxs);
 }

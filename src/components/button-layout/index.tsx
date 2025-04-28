@@ -7,6 +7,7 @@ export default function ButtonLayout({
   row,
   column,
   fullWidth = true,
+  space = 'xs',
 }: ButtonLayoutProps) {
   const base = 'lds--button-layout';
 
@@ -21,7 +22,7 @@ export default function ButtonLayout({
     return '';
   };
 
-  const className = `${base} ${getDirectionModifier()} ${getFullWidthModifier()}`;
+  const className = `${base} ${getDirectionModifier()} ${getFullWidthModifier()} ${base}--spacing--${space}`;
   return (
     <div className={className}>
       {primaryButton}

@@ -6,4 +6,5 @@ export interface ButtonLayoutProps {
   row?: boolean;
   column?: boolean;
   fullWidth?: boolean;
+  space?: 'xxs' | 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'xxl';
 }

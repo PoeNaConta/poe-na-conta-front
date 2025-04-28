@@ -3,7 +3,7 @@
 exports[`ButtonLayout > should render button layout with direction { column: true } 1`] = `
 <div>
   <div
-    class="lds--button-layout lds--button-layout--column lds--button-layout--full-width"
+    class="lds--button-layout lds--button-layout--column lds--button-layout--full-width lds--button-layout--spacing--xs"
   >
     <button>
       example primary button
@@ -15,7 +15,7 @@ exports[`ButtonLayout > should render button layout with direction { column: tru
 exports[`ButtonLayout > should render button layout with direction { row: true } 1`] = `
 <div>
   <div
-    class="lds--button-layout lds--button-layout--row lds--button-layout--full-width"
+    class="lds--button-layout lds--button-layout--row lds--button-layout--full-width lds--button-layout--spacing--xs"
   >
     <button>
       example primary button
@@ -24,10 +24,115 @@ exports[`ButtonLayout > should render button layout with direction { row: true }
 </div>
 `;
 
+exports[`ButtonLayout > should render button layout with direction lg 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--lg"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction md 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--md"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction sm 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--sm"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction xl 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xl"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction xs 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xs"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction xxl 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xxl"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
+exports[`ButtonLayout > should render button layout with direction xxs 1`] = `
+<div>
+  <div
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xxs"
+  >
+    <button>
+      example primary button
+    </button>
+    <button>
+      example secondary button
+    </button>
+  </div>
+</div>
+`;
+
 exports[`ButtonLayout > should render button layout with fullWidth=false 1`] = `
 <div>
   <div
-    class="lds--button-layout  "
+    class="lds--button-layout   lds--button-layout--spacing--xs"
   >
     <button>
       example primary button
@@ -39,7 +144,7 @@ exports[`ButtonLayout > should render button layout with fullWidth=false 1`] = `
 exports[`ButtonLayout > should render button layout with fullWidth=true 1`] = `
 <div>
   <div
-    class="lds--button-layout  lds--button-layout--full-width"
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xs"
   >
     <button>
       example primary button
@@ -51,7 +156,7 @@ exports[`ButtonLayout > should render button layout with fullWidth=true 1`] = `
 exports[`ButtonLayout > should render button layout with primary button 1`] = `
 <div>
   <div
-    class="lds--button-layout  lds--button-layout--full-width"
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xs"
   >
     <button>
       example primary button
@@ -63,7 +168,7 @@ exports[`ButtonLayout > should render button layout with primary button 1`] = `
 exports[`ButtonLayout > should render button layout with secondary button 1`] = `
 <div>
   <div
-    class="lds--button-layout  lds--button-layout--full-width"
+    class="lds--button-layout  lds--button-layout--full-width lds--button-layout--spacing--xs"
   >
     <button>
       example primary button

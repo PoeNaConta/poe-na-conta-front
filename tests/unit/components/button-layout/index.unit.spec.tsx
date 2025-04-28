@@ -1,6 +1,7 @@
 import React from 'react';
 import ButtonLayout from '@components/button-layout';
 import { render } from '@testing-library/react';
+import { ButtonLayoutProps } from '@components/button-layout/types';
 
 describe('ButtonLayout', () => {
   it('should render button layout with primary button', () => {
@@ -33,6 +34,21 @@ describe('ButtonLayout', () => {
         <ButtonLayout
           {...directionProps}
           primaryButton={<button>example primary button</button>}
+        />,
+      );
+
+      expect(container).toMatchSnapshot();
+    },
+  );
+
+  it.each(['xxs', 'xs', 'sm', 'md', 'lg', 'xl', 'xxl'])(
+    'should render button layout with direction %s',
+    (space: ButtonLayoutProps['space']) => {
+      const { container } = render(
+        <ButtonLayout
+          space={space}
+          primaryButton={<button>example primary button</button>}
+          secondaryButton={<button>example secondary button</button>}
         />,
       );
 
