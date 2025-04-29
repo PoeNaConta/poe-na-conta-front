@@ -1,0 +1,10 @@
+.lds--card {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--lds-spacing-lg);
+  padding: var(--lds-spacing-xxxl);
+  border-radius: var(--lds-radius-xl);
+
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 25%);
+}
