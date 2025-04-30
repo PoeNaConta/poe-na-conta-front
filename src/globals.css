@@ -32,6 +32,7 @@
   --lds-spacing-lg: 16px;
   --lds-spacing-xl: 24px;
   --lds-spacing-xxl: 32px;
+  --lds-spacing-xxxl: 50px;
 
   --lds-text-color-primary: var(--lds-color-brand);
   --lds-text-color-default: var(--lds-color-dark);
