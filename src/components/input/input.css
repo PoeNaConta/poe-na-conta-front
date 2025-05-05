@@ -1,0 +1,18 @@
+.lds--input__wrapper {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--lds-spacing-sm);
+}
+
+.lds--input__input {
+  border-radius: var(--lds-radius);
+  border: 1px solid var(--lds-color-gray-light);
+
+  padding-block: var(--lds-spacing-sm);
+  padding-inline: var(--lds-spacing-md);
+}
+
+.lds--input__input::placeholder {
+  color: var(--lds-text-color-tertiary);
+}

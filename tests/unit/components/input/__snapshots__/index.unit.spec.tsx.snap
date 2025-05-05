@@ -1,0 +1,31 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Input > should render basic input 1`] = `
+<div>
+  <div
+    class="lds--input__wrapper"
+  >
+    <label
+      class="lds--text lds--text--regular lds--text--md lds--text--default"
+    />
+    <input
+      class="lds--input__input"
+    />
+  </div>
+</div>
+`;
+
+exports[`Input > should render input with label 1`] = `
+<div>
+  <div
+    class="lds--input__wrapper"
+  >
+    <label
+      class="lds--text lds--text--regular lds--text--md lds--text--default"
+    />
+    <input
+      class="lds--input__input"
+    />
+  </div>
+</div>
+`;
