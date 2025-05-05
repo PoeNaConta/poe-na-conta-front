@@ -2,6 +2,10 @@
   font-family: var(--lds-fontfamily-sans);
 }
 
+.lds--text--center {
+  align-self: center;
+}
+
 .lds--text--xs {
   font-size: var(--lds-fontsize-xs);
 }
@@ -44,4 +48,24 @@
 
 .lds--text--onbrand {
   color: var(--lds-text-color-onbrand);
+}
+
+.lds--text--light {
+  font-weight: var(--lds-fontweight-light);
+}
+
+.lds--text--regular {
+  font-weight: var(--lds-fontweight-regular);
+}
+
+.lds--text--medium {
+  font-weight: var(--lds-fontweight-medium);
+}
+
+.lds--text--semibold {
+  font-weight: var(--lds-fontweight-semibold);
+}
+
+.lds--text--bold {
+  font-weight: var(--lds-fontweight-bold);
 }
