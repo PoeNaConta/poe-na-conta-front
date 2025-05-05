@@ -5,6 +5,8 @@ export default function Button({
   children,
   primary,
   secondary,
+  disabled = false,
+  type = 'button',
   onClick: handleClick,
 }: ButtonProps) {
   const base = 'lds--button';
@@ -16,7 +18,12 @@ export default function Button({
 
   const className = `${base} ${getColorModifier()}`;
   return (
-    <button className={className} onClick={handleClick}>
+    <button
+      type={type}
+      className={className}
+      disabled={disabled}
+      onClick={handleClick}
+    >
       {children}
     </button>
   );

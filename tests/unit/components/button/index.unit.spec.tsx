@@ -33,6 +33,16 @@ describe('Button', () => {
     );
   });
 
+  it('should render disabled button', () => {
+    const { container } = render(
+      <Button primary disabled onClick={vi.fn()}>
+        example button
+      </Button>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   it('should render fake button', () => {
     const { container } = render(
       <Button primary fake>
@@ -43,7 +53,7 @@ describe('Button', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should render button of type %s', () => {
+  it('should call function when click button', () => {
     const onClickMock = vi.fn();
     render(
       <Button primary onClick={onClickMock}>
@@ -56,4 +66,17 @@ describe('Button', () => {
 
     expect(onClickMock).toBeCalled();
   });
+
+  it.each(['submit', 'reset'])(
+    'should be able to accept %s type with no onClick',
+    (type: 'submit' | 'reset') => {
+      const { container } = render(
+        <Button primary type={type}>
+          example button
+        </Button>,
+      );
+
+      expect(container).toMatchSnapshot();
+    },
+  );
 });

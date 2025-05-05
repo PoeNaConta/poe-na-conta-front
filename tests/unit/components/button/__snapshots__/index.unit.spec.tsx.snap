@@ -1,9 +1,32 @@
 // Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
 
+exports[`Button > should be able to accept reset type with no onClick 1`] = `
+<div>
+  <button
+    class="lds--button lds--button--primary"
+    type="reset"
+  >
+    example button
+  </button>
+</div>
+`;
+
+exports[`Button > should be able to accept submit type with no onClick 1`] = `
+<div>
+  <button
+    class="lds--button lds--button--primary"
+    type="submit"
+  >
+    example button
+  </button>
+</div>
+`;
+
 exports[`Button > should not render button of type secondary 1`] = `
 <div>
   <button
     class="lds--button undefined"
+    type="button"
   >
     example button
   </button>
@@ -14,6 +37,7 @@ exports[`Button > should render button of type secondary 1`] = `
 <div>
   <button
     class="lds--button lds--button--primary"
+    type="button"
   >
     example button
   </button>
@@ -24,6 +48,19 @@ exports[`Button > should render button of type secondary 2`] = `
 <div>
   <button
     class="lds--button lds--button--secondary"
+    type="button"
+  >
+    example button
+  </button>
+</div>
+`;
+
+exports[`Button > should render disabled button 1`] = `
+<div>
+  <button
+    class="lds--button lds--button--primary"
+    disabled=""
+    type="button"
   >
     example button
   </button>
@@ -34,6 +71,7 @@ exports[`Button > should render fake button 1`] = `
 <div>
   <button
     class="lds--button lds--button--primary"
+    type="button"
   >
     example button
   </button>
