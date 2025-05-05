@@ -33,6 +33,16 @@ describe('Button', () => {
     );
   });
 
+  it('should render disabled button', () => {
+    const { container } = render(
+      <Button primary disabled onClick={vi.fn()}>
+        example button
+      </Button>,
+    );
+
+    expect(container).toMatchSnapshot();
+  });
+
   it('should render fake button', () => {
     const { container } = render(
       <Button primary fake>

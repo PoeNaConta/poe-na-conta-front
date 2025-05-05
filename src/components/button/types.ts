@@ -6,6 +6,7 @@ export interface PrimaryButtonProps extends PropsWithChildren {
   onClick: () => void;
   fake?: never;
   type?: 'button';
+  disabled?: boolean;
 }
 
 export interface PrimaryFormButtonProps extends PropsWithChildren {
@@ -14,6 +15,7 @@ export interface PrimaryFormButtonProps extends PropsWithChildren {
   onClick?: never;
   fake?: never;
   type: 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export interface SecondaryButtonProps extends PropsWithChildren {
@@ -22,6 +24,7 @@ export interface SecondaryButtonProps extends PropsWithChildren {
   onClick: () => void;
   fake?: never;
   type?: 'button';
+  disabled?: boolean;
 }
 
 export interface SecondaryFormButtonProps extends PropsWithChildren {
@@ -30,6 +33,7 @@ export interface SecondaryFormButtonProps extends PropsWithChildren {
   onClick?: never;
   fake?: never;
   type: 'submit' | 'reset';
+  disabled?: boolean;
 }
 
 export interface FakeButtonProps extends PropsWithChildren {
@@ -38,6 +42,7 @@ export interface FakeButtonProps extends PropsWithChildren {
   onClick?: never;
   fake: true;
   type?: never;
+  disabled?: boolean;
 }
 
 export type ButtonProps =

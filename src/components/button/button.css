@@ -10,18 +10,23 @@
   cursor: pointer;
 }
 
+.lds--button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
 .lds--button--primary {
   color: var(--lds-text-color-onbrand);
   background-color: var(--lds-color-brand);
   border: 1px solid var(--lds-color-brand);
 }
 
-.lds--button--primary:hover {
+.lds--button--primary:not(:disabled):hover {
   background-color: var(--lds-color-brand-light);
   border: 1px solid var(--lds-color-brand-light);
 }
 
-.lds--button--primary:active {
+.lds--button--primary:not(:disabled):active {
   background-color: var(--lds-color-brand-dark);
   border: 1px solid var(--lds-color-brand-dark);
 }
@@ -32,10 +37,10 @@
   border: 1px solid var(--lds-color-dark);
 }
 
-.lds--button--secondary:hover {
+.lds--button--secondary:not(:disabled):hover {
   background-color: var(--lds-color-white-dark);
 }
 
-.lds--button--secondary:active {
+.lds--button--secondary:not(:disabled):active {
   background-color: var(--lds-color-gray-light);
 }
