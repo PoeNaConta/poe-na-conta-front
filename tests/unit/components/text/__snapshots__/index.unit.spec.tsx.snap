@@ -3,7 +3,7 @@
 exports[`Text > should render as { onBrand: true } 1`] = `
 <div>
   <p
-    class="lds--text lds--text--onbrand lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--onbrand"
   >
     example text
   </p>
@@ -13,7 +13,7 @@ exports[`Text > should render as { onBrand: true } 1`] = `
 exports[`Text > should render as { primary: true } 1`] = `
 <div>
   <p
-    class="lds--text lds--text--primary lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--primary"
   >
     example text
   </p>
@@ -23,7 +23,7 @@ exports[`Text > should render as { primary: true } 1`] = `
 exports[`Text > should render as { secondary: true } 1`] = `
 <div>
   <p
-    class="lds--text lds--text--secondary lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--secondary"
   >
     example text
   </p>
@@ -33,7 +33,7 @@ exports[`Text > should render as { secondary: true } 1`] = `
 exports[`Text > should render as { tertiary: true } 1`] = `
 <div>
   <p
-    class="lds--text lds--text--tertiary lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--tertiary"
   >
     example text
   </p>
@@ -43,7 +43,7 @@ exports[`Text > should render as { tertiary: true } 1`] = `
 exports[`Text > should render element as h1 1`] = `
 <div>
   <h1
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </h1>
@@ -53,7 +53,7 @@ exports[`Text > should render element as h1 1`] = `
 exports[`Text > should render element as h2 1`] = `
 <div>
   <h2
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </h2>
@@ -63,7 +63,7 @@ exports[`Text > should render element as h2 1`] = `
 exports[`Text > should render element as h3 1`] = `
 <div>
   <h3
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </h3>
@@ -73,7 +73,7 @@ exports[`Text > should render element as h3 1`] = `
 exports[`Text > should render element as h4 1`] = `
 <div>
   <h4
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </h4>
@@ -83,7 +83,7 @@ exports[`Text > should render element as h4 1`] = `
 exports[`Text > should render element as h5 1`] = `
 <div>
   <h5
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </h5>
@@ -93,17 +93,38 @@ exports[`Text > should render element as h5 1`] = `
 exports[`Text > should render element as h5 2`] = `
 <div>
   <h5
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </h5>
 </div>
 `;
 
+exports[`Text > should render element as label with htmlFor 1`] = `
+<div>
+  <label
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
+    for="test-id"
+  >
+    example text
+  </label>
+</div>
+`;
+
+exports[`Text > should render element as label without htmlFor 1`] = `
+<div>
+  <label
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
+  >
+    example text
+  </label>
+</div>
+`;
+
 exports[`Text > should render element as p 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </p>
@@ -113,17 +134,27 @@ exports[`Text > should render element as p 1`] = `
 exports[`Text > should render element as span 1`] = `
 <div>
   <span
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </span>
 </div>
 `;
 
+exports[`Text > should render element on center 1`] = `
+<div>
+  <p
+    class="lds--text lds--text--regular lds--text--md lds--text--default lds--text--center"
+  >
+    example text
+  </p>
+</div>
+`;
+
 exports[`Text > should render with default props 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--md"
+    class="lds--text lds--text--regular lds--text--md lds--text--default"
   >
     example text
   </p>
@@ -133,7 +164,7 @@ exports[`Text > should render with default props 1`] = `
 exports[`Text > should render with size hero 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--hero"
+    class="lds--text lds--text--regular lds--text--hero lds--text--default"
   >
     example text
   </p>
@@ -143,7 +174,7 @@ exports[`Text > should render with size hero 1`] = `
 exports[`Text > should render with size l 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--l"
+    class="lds--text lds--text--regular lds--text--l lds--text--default"
   >
     example text
   </p>
@@ -153,7 +184,7 @@ exports[`Text > should render with size l 1`] = `
 exports[`Text > should render with size m 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--m"
+    class="lds--text lds--text--regular lds--text--m lds--text--default"
   >
     example text
   </p>
@@ -163,7 +194,7 @@ exports[`Text > should render with size m 1`] = `
 exports[`Text > should render with size s 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--s"
+    class="lds--text lds--text--regular lds--text--s lds--text--default"
   >
     example text
   </p>
@@ -173,7 +204,7 @@ exports[`Text > should render with size s 1`] = `
 exports[`Text > should render with size xl 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--xl"
+    class="lds--text lds--text--regular lds--text--xl lds--text--default"
   >
     example text
   </p>
@@ -183,7 +214,7 @@ exports[`Text > should render with size xl 1`] = `
 exports[`Text > should render with size xs 1`] = `
 <div>
   <p
-    class="lds--text lds--text--default lds--text--xs"
+    class="lds--text lds--text--regular lds--text--xs lds--text--default"
   >
     example text
   </p>
