@@ -1,35 +1,38 @@
-import { createElement, PropsWithChildren } from 'react';
+import { createElement } from 'react';
 import './text.css';
-
-export interface TextProps extends PropsWithChildren {
-  as?: 'p' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h5' | 'span';
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'hero';
-  primary?: boolean;
-  secondary?: boolean;
-  tertiary?: boolean;
-  onBrand?: boolean;
-}
+import { TextProps } from './types';
+import removeSpaces from '@utils/remove-spaces';
 
 export default function Text({
   children,
   as: element = 'p',
   size = 'md',
-  primary = false,
-  secondary = false,
-  tertiary = false,
-  onBrand = false,
+  weight = 'regular',
+  center,
+  htmlFor,
+  primary,
+  secondary,
+  tertiary,
+  onBrand,
 }: TextProps) {
-  const prefix = 'lds--text';
+  const base = 'lds--text';
 
   const getColorModifier = () => {
-    if (primary) return `${prefix}--primary`;
-    if (secondary) return `${prefix}--secondary`;
-    if (tertiary) return `${prefix}--tertiary`;
-    if (onBrand) return `${prefix}--onbrand`;
-    return `${prefix}--default`;
+    if (primary) return `${base}--primary`;
+    if (secondary) return `${base}--secondary`;
+    if (tertiary) return `${base}--tertiary`;
+    if (onBrand) return `${base}--onbrand`;
+    return `${base}--default`;
   };
 
-  const className = `${prefix} ${getColorModifier()} ${prefix}--${size}`;
+  const getCenterModifier = () => {
+    if (center) return `${base}--center`;
+    return '';
+  };
 
-  return createElement(element, { className }, children);
+  const className = removeSpaces(
+    `${base} ${base}--${weight} ${base}--${size} ${getColorModifier()} ${getCenterModifier()}`,
+  );
+
+  return createElement(element, { className, htmlFor }, children);
 }

@@ -8,7 +8,7 @@
 
   --lds-color-gray-dark: #999999;
   --lds-color-gray: #b3b3b3;
-  --lds-color-gray-light: #cdcdcd;
+  --lds-color-gray-light: #d9d9d9;
 
   --lds-color-white-dark: #e6e6e6;
   --lds-color-white: #f5f5f5;
@@ -24,6 +24,12 @@
   --lds-fontsize-md: 16px;
   --lds-fontsize-lg: 24px;
   --lds-fontsize-xl: 32px;
+
+  --lds-fontweight-light: 300;
+  --lds-fontweight-regular: 400;
+  --lds-fontweight-medium: 500;
+  --lds-fontweight-semibold: 600;
+  --lds-fontweight-bold: 700;
 
   --lds-spacing-xxs: 2px;
   --lds-spacing-xs: 4px;

@@ -1,6 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
-import Text, { TextProps } from '@components/text';
+import Text from '@components/text';
+import { TextProps } from '@components/text/types';
 
 describe('Text', () => {
   it.each(['p', 'h1', 'h2', 'h3', 'h4', 'h5', 'h5', 'span'])(
@@ -11,6 +12,34 @@ describe('Text', () => {
       expect(container).toMatchSnapshot();
     },
   );
+
+  it('should render element as label with htmlFor', () => {
+    const { container } = render(
+      <Text as="label" htmlFor="test-id">
+        example text
+      </Text>,
+    );
+
+    expect(container.firstElementChild.hasAttribute('for')).toBeTruthy();
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render element as label without htmlFor', () => {
+    const { container } = render(
+      <Text as="label" htmlFor={null}>
+        example text
+      </Text>,
+    );
+
+    expect(container.firstElementChild.hasAttribute('for')).toBeFalsy();
+    expect(container).toMatchSnapshot();
+  });
+
+  it('should render element on center', () => {
+    const { container } = render(<Text center>example text</Text>);
+
+    expect(container).toMatchSnapshot();
+  });
 
   it.each(['xs', 's', 'm', 'l', 'xl', 'hero'])(
     'should render with size %s',
