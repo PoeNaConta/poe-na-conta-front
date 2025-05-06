@@ -5,9 +5,6 @@ exports[`Input > should render basic input 1`] = `
   <div
     class="lds--input__wrapper"
   >
-    <label
-      class="lds--text lds--text--regular lds--text--md lds--text--default"
-    />
     <input
       class="lds--input__input"
     />
@@ -15,17 +12,23 @@ exports[`Input > should render basic input 1`] = `
 </div>
 `;
 
-exports[`Input > should render input with label 1`] = `
+exports[`Input > should render full input 1`] = `
 <div>
   <div
     class="lds--input__wrapper"
   >
     <label
       class="lds--text lds--text--regular lds--text--md lds--text--default"
-    />
-    <input
-      class="lds--input__input"
-    />
+    >
+      Test label
+      <input
+        class="lds--input__input"
+        name="Example name"
+        placeholder="Test placeholder"
+        type="text"
+        value="value"
+      />
+    </label>
   </div>
 </div>
 `;

@@ -1,4 +1,5 @@
-.lds--input__wrapper {
+.lds--input__wrapper,
+.lds--input__wrapper > label {
   display: flex;
   flex-direction: column;
 
