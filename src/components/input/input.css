@@ -9,8 +9,8 @@
   border-radius: var(--lds-radius);
   border: 1px solid var(--lds-color-gray-light);
 
-  padding-block: var(--lds-spacing-sm);
-  padding-inline: var(--lds-spacing-md);
+  padding-block: var(--lds-spacing-md);
+  padding-inline: var(--lds-spacing-lg);
 }
 
 .lds--input__input::placeholder {
