@@ -1,0 +1,33 @@
+.lds--select,
+.lds--select > label {
+  display: flex;
+  flex-direction: column;
+
+  gap: var(--lds-spacing-sm);
+}
+
+.lds--select select {
+  border-radius: var(--lds-radius);
+  border: 1px solid var(--lds-color-gray-light);
+
+  /* select caret */
+  appearance: none;
+  background-color: unset;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAB4AAAAUCAMAAACtdX32AAAAdVBMVEUAAAD///8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhMdQaAAAAJ3RSTlMAAAECAwQGBwsOFBwkJTg5RUZ4eYCHkJefpaytrsXGy8zW3+Do8vNn0bsyAAAAYElEQVR42tXROwJDQAAA0Ymw1p9kiT+L5P5HVEi3qJn2lcPjtIuzUIJ/rhIGy762N3XaThqMN1ZPALsZPEzG1x8LrFL77DHBnEMxBewz0fJ6LyFHTPL7xhwzWYrJ9z22AqmQBV757MHfAAAAAElFTkSuQmCC);
+  background-size: 20px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - var(--lds-spacing-md));
+
+  padding-block: var(--lds-spacing-md);
+  padding-inline: var(--lds-spacing-lg);
+}
+
+/* placeholder option */
+.lds--select select:invalid,
+.lds--select select > option[value=''] {
+  color: var(--lds-text-color-tertiary);
+}
+
+.lds--select > [hidden] {
+  display: none;
+}

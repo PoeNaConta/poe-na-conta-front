@@ -1,0 +1,74 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Select > should render select component with label 1`] = `
+<div>
+  <div
+    class="lds--select"
+  >
+    <label
+      class="lds--text lds--text--regular lds--text--md lds--text--default"
+    >
+      Select label
+      <select
+        required=""
+      />
+    </label>
+  </div>
+</div>
+`;
+
+exports[`Select > should render select component with no options 1`] = `
+<div>
+  <div
+    class="lds--select"
+  >
+    <select
+      required=""
+    />
+  </div>
+</div>
+`;
+
+exports[`Select > should render select component with options 1`] = `
+<div>
+  <div
+    class="lds--select"
+  >
+    <select
+      required=""
+    >
+      <option
+        value="option-1"
+      >
+        option 1
+      </option>
+    </select>
+  </div>
+</div>
+`;
+
+exports[`Select > should render select component with placeholder 1`] = `
+<div>
+  <div
+    class="lds--select"
+  >
+    <select
+      required=""
+    >
+      <option
+        disabled=""
+        hidden=""
+        selected=""
+        value=""
+      >
+        select option
+      </option>
+      <option
+        value="option-1"
+      >
+        option 1
+      </option>
+    </select>
+  </div>
+</div>
+`;
