@@ -9,9 +9,6 @@ export interface SelectBaseProps {
   onOptionSelected: (option: SelectOption, optionIndex: number) => void;
 }
 
-export interface SelectProps {
+export interface SelectProps extends SelectBaseProps {
   label?: string;
-  options: SelectOption[];
-  placeholder?: string;
-  onOptionSelected: (option: SelectOption, optionIndex: number) => void;
 }

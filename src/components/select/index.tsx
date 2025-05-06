@@ -32,7 +32,7 @@ export default function Select({ label, ...selectBaseProps }: SelectProps) {
   const base = 'lds--select';
 
   return (
-    <div className={`${base}`}>
+    <div className={base}>
       {label ? (
         <Text as="label">
           {label}
