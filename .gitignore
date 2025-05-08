@@ -26,3 +26,5 @@ reports
 
 # stryker temp files
 .stryker-tmp
+
+*storybook.log
