@@ -21,7 +21,6 @@ const meta = {
     onClick: { if: { arg: 'fake', truthy: false } },
   },
   args: {
-    type: 'button',
     children: 'Button',
     onClick: action('onClick'),
   },
