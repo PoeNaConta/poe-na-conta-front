@@ -31,6 +31,8 @@ export default defineConfig({
         'stryker-tmp/**',
         '.stryker-tmp/**',
         './src/main.tsx',
+        './.storybook/*',
+        '**/*.stories.{ts,tsx,js,jsx}',
       ],
       reportsDirectory: './reports/unit',
       thresholds: {

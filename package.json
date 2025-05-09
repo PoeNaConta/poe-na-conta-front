@@ -21,7 +21,9 @@
     "preview": "vite preview",
     "prepare": "husky",
     "test:preview": "vitest --workspace=vitest.workspace.preview.ts",
-    "test:browser": "vitest --workspace=vitest.workspace.ts"
+    "test:browser": "vitest --workspace=vitest.workspace.ts",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@stryker-mutator/core": "^8.7.1",
@@ -42,8 +44,16 @@
     ]
   },
   "devDependencies": {
+    "@chromatic-com/storybook": "^3.2.6",
     "@commitlint/config-conventional": "^19.8.0",
     "@eslint/js": "^9.23.0",
+    "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-onboarding": "^8.6.12",
+    "@storybook/blocks": "^8.6.12",
+    "@storybook/experimental-addon-test": "^8.6.12",
+    "@storybook/react": "^8.6.12",
+    "@storybook/react-vite": "^8.6.12",
+    "@storybook/test": "^8.6.12",
     "@stryker-mutator/jest-runner": "^8.7.1",
     "@stryker-mutator/typescript-checker": "^8.7.1",
     "@stryker-mutator/vitest-runner": "^8.7.1",
@@ -60,12 +70,14 @@
     "eslint-plugin-react": "^7.37.4",
     "eslint-plugin-react-hooks": "^5.1.0",
     "eslint-plugin-react-refresh": "^0.4.19",
+    "eslint-plugin-storybook": "^0.12.0",
     "globals": "^15.15.0",
     "husky": "^9.1.7",
     "jsdom": "^26.0.0",
     "lint-staged": "^15.5.0",
     "playwright": "^1.51.1",
     "prettier": "3.5.3",
+    "storybook": "^8.6.12",
     "tsconfig-paths": "^4.2.0",
     "typescript": "~5.7.2",
     "typescript-eslint": "^8.29.0",
@@ -73,5 +85,10 @@
     "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.1.1",
     "vitest-browser-react": "^0.1.1"
+  },
+  "eslintConfig": {
+    "extends": [
+      "plugin:storybook/recommended"
+    ]
   }
 }

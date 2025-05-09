@@ -11,7 +11,9 @@
     ".husky",
     ".vscode",
     "src/main.tsx",
-    "src/App.tsx"
+    "src/App.tsx",
+    "./.storybook/*",
+    "**/*.stories.{ts,tsx,js,jsx}"
   ],
   "reporters": ["progress", "clear-text", "html"],
   "htmlReporter": {
