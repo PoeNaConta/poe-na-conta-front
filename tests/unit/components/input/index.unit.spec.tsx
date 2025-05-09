@@ -9,8 +9,17 @@ describe('Input', () => {
     expect(container).toMatchSnapshot();
   });
 
-  it('should render input with label', () => {
-    const { container } = render(<Input />);
+  it('should render full input', () => {
+    const { container } = render(
+      <Input
+        label="Test label"
+        placeholder="Test placeholder"
+        name="Example name"
+        type="text"
+        value="value"
+        onChange={vi.fn()}
+      />,
+    );
 
     expect(container).toMatchSnapshot();
   });
