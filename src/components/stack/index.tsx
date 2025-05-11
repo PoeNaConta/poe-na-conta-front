@@ -15,10 +15,7 @@ export default function Stack({
   const base = 'lds--stack';
 
   const getWrapModifier = () => {
-    if (wrap === true) {
-      return 'wrap';
-    }
-    return wrap;
+    return wrap === true ? 'wrap' : wrap;
   };
 
   const className = removeSpaces(
