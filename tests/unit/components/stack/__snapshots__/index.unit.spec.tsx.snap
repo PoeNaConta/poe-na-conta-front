@@ -1,0 +1,41 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Stack > should render with custom element 1`] = `
+<div>
+  <main
+    class="lds--stack lds--stack--nowrap lds--stack--space-lg lds--stack--direction--column lds--stack--align-start lds--stack--justify-start"
+  >
+    Test
+  </main>
+</div>
+`;
+
+exports[`Stack > should render with custom props 1`] = `
+<div>
+  <div
+    class="lds--stack lds--stack--wrap lds--stack--space-sm lds--stack--direction--row lds--stack--align-center lds--stack--justify-end"
+  >
+    Test
+  </div>
+</div>
+`;
+
+exports[`Stack > should render with default props 1`] = `
+<div>
+  <div
+    class="lds--stack lds--stack--nowrap lds--stack--space-lg lds--stack--direction--column lds--stack--align-start lds--stack--justify-start"
+  >
+    Test
+  </div>
+</div>
+`;
+
+exports[`Stack > should render with wrap = true 1`] = `
+<div>
+  <div
+    class="lds--stack lds--stack--wrap lds--stack--space-lg lds--stack--direction--column lds--stack--align-start lds--stack--justify-start"
+  >
+    Test
+  </div>
+</div>
+`;
