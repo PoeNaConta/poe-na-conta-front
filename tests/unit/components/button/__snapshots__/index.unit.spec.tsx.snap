@@ -55,6 +55,16 @@ exports[`Button > should render button of type secondary 2`] = `
 </div>
 `;
 
+exports[`Button > should render button of type secondary 3`] = `
+<div>
+  <a
+    class="lds--button lds--button--link"
+  >
+    example button
+  </a>
+</div>
+`;
+
 exports[`Button > should render disabled button 1`] = `
 <div>
   <button

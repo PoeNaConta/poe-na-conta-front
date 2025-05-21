@@ -3,12 +3,13 @@ import Button from '@components/button';
 import { fireEvent, render, screen } from '@testing-library/react';
 
 describe('Button', () => {
-  it.each([{ primary: true }, { secondary: true }])(
+  it.each([{ primary: true }, { secondary: true }, { link: true }])(
     'should render button of type secondary',
     (
       typesProps:
-        | { primary: true; secondary?: never }
-        | { primary?: never; secondary: true },
+        | { primary: true; secondary?: never; link?: never }
+        | { primary?: never; secondary: true; link?: never }
+        | { primary?: never; secondary?: never; link: true },
     ) => {
       const { container } = render(
         <Button {...typesProps} onClick={vi.fn()}>
