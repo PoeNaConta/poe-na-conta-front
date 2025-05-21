@@ -44,3 +44,11 @@
 .lds--button--secondary:not(:disabled):active {
   background-color: var(--lds-color-gray-light);
 }
+
+.lds--button--link {
+  color: var(--lds-text-color-primary);
+  text-decoration: underline;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}

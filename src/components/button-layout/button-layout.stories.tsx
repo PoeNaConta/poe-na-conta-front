@@ -16,6 +16,11 @@ const secondaryButton = (
     Secondary Button
   </Button>
 );
+const linkButton = (
+  <Button link onClick={action('onClick link button')}>
+    Link Button
+  </Button>
+);
 
 const meta = {
   title: 'Components/ButtonLayout',
@@ -41,8 +46,16 @@ export const WithSecondaryButton: Story = {
   },
 };
 
+export const WithLinkButton: Story = {
+  args: {
+    secondaryButton: linkButton,
+    column: true,
+    space: 'xl',
+  },
+};
+
 export const Row: Story = {
-  storyName: 'Row (default)',
+  name: 'Row (default)',
   args: {
     secondaryButton,
     row: true,
@@ -57,7 +70,7 @@ export const Column: Story = {
 };
 
 export const FullWidth: Story = {
-  storyName: 'Full Width (default)',
+  name: 'Full Width (default)',
   args: {
     secondaryButton,
     fullWidth: true,

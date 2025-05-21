@@ -14,6 +14,7 @@ const meta = {
   argTypes: {
     primary: { if: { arg: 'secondary', truthy: false }, control: 'boolean' },
     secondary: { if: { arg: 'primary', truthy: false }, control: 'boolean' },
+    link: { if: { arg: 'primary', truthy: false }, control: 'boolean' },
     disabled: { control: 'boolean' },
     children: { control: 'text' },
     type: { control: 'select', options: ['button', 'submit', 'reset'] },
@@ -38,6 +39,12 @@ export const Primary: Story = {
 export const Secondary: Story = {
   args: {
     secondary: true,
+  },
+};
+
+export const link: Story = {
+  args: {
+    link: true,
   },
 };
 
