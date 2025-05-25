@@ -1,0 +1,22 @@
+.lds--modal__backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  background-color: rgba(0, 0, 0, 0.75);
+
+  z-index: 900;
+}
+
+.lds--modal__content {
+  position: fixed;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 1000;
+}
