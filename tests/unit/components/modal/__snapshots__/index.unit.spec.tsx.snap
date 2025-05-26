@@ -1,0 +1,20 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Modal > should render modal disabled 1`] = `<div />`;
+
+exports[`Modal > should render modal enabled 1`] = `
+<div>
+  <div
+    class="lds--modal__wrapper"
+  >
+    <div
+      class="lds--modal__backdrop"
+    />
+    <div
+      class="lds--modal__content"
+    >
+      modal
+    </div>
+  </div>
+</div>
+`;
