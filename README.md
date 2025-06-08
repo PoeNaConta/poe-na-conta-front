@@ -11,9 +11,9 @@ Este repositório contém o front-end do projeto **Poe na Conta**, uma plataform
 
 ## Tecnologias utilizadas
 
-- **Framework**: React (com CRA ou Vite)
+- **Framework**: React (com Vite)
 - **Linguagem**: TypeScript / JavaScript
-- **Estilo**: CSS Modules, Styled Components ou Tailwind CSS
-- **Gerenciamento de estado**: Redux / Context API / Zustand
-- **Chamadas HTTP**: Axios / Fetch
-- **Testes**: Jest + React Testing Library
+- **Estilo**: CSS Modules
+<!--Gerenciador de Estados:-->
+- **Chamadas HTTP**: Axios
+- **Testes**: Jest + React Testing Library + Stryker
