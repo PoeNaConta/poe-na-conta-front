@@ -1,0 +1,131 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`LoginView > should render Login view correctly 1`] = `
+<div>
+  <div
+    class="lds--card"
+  >
+    <div
+      class="lds--stack lds--stack--mobile lds--stack--space-xxl lds--stack--direction--row lds--stack--align-stretch lds--stack--justify-evenly"
+    >
+      <form
+        class="lds--stack lds--stack--nowrap lds--stack--full-width lds--stack--space-lg lds--stack--direction--column lds--stack--align-stretch lds--stack--justify-start"
+      >
+        <h3
+          class="lds--text lds--text--bold lds--text--md lds--text--secondary lds--text--center"
+        >
+          Registre-se
+        </h3>
+        <div
+          class="lds--input__wrapper"
+        >
+          <label
+            class="lds--text lds--text--regular lds--text--md lds--text--default"
+          >
+            Nome
+            <input
+              class="lds--input__input"
+              placeholder="seu nome"
+            />
+          </label>
+        </div>
+        <div
+          class="lds--input__wrapper"
+        >
+          <label
+            class="lds--text lds--text--regular lds--text--md lds--text--default"
+          >
+            Email
+            <input
+              class="lds--input__input"
+              placeholder="digite seu email"
+            />
+          </label>
+        </div>
+        <div
+          class="lds--input__wrapper"
+        >
+          <label
+            class="lds--text lds--text--regular lds--text--md lds--text--default"
+          >
+            Senha
+            <input
+              class="lds--input__input"
+              placeholder="crie uma senha"
+            />
+          </label>
+        </div>
+        <div
+          class="lds--button-layout lds--button-layout--column lds--button-layout--full-width lds--button-layout--spacing--xs"
+        >
+          <button
+            class="lds--button lds--button--primary"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </form>
+      <div
+        class="lds--stack lds--stack--nowrap lds--stack--space-lg lds--stack--direction--column lds--stack--align-center lds--stack--justify-center"
+      >
+        <p
+          class="lds--text lds--text--bold lds--text--md lds--text--secondary"
+        >
+          OU
+        </p>
+      </div>
+      <form
+        class="lds--stack lds--stack--nowrap lds--stack--full-width lds--stack--space-lg lds--stack--direction--column lds--stack--align-stretch lds--stack--justify-start"
+      >
+        <h3
+          class="lds--text lds--text--bold lds--text--md lds--text--secondary lds--text--center"
+        >
+          Faça login
+        </h3>
+        <div
+          class="lds--input__wrapper"
+        >
+          <label
+            class="lds--text lds--text--regular lds--text--md lds--text--default"
+          >
+            Email
+            <input
+              class="lds--input__input"
+              placeholder="digite seu email"
+            />
+          </label>
+        </div>
+        <div
+          class="lds--input__wrapper"
+        >
+          <label
+            class="lds--text lds--text--regular lds--text--md lds--text--default"
+          >
+            Senha
+            <input
+              class="lds--input__input"
+              placeholder="informe sua senha"
+            />
+          </label>
+        </div>
+        <div
+          class="lds--button-layout lds--button-layout--column lds--button-layout--full-width lds--button-layout--spacing--xs"
+        >
+          <button
+            class="lds--button lds--button--primary"
+            type="submit"
+          >
+            Login
+          </button>
+          <a
+            class="lds--button lds--button--link"
+          >
+            Esqueceu a senha?
+          </a>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+`;

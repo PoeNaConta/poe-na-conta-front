@@ -30,6 +30,16 @@ exports[`Stack > should render with default props 1`] = `
 </div>
 `;
 
+exports[`Stack > should render with fullWidth = true 1`] = `
+<div>
+  <div
+    class="lds--stack lds--stack--nowrap lds--stack--full-width lds--stack--space-lg lds--stack--direction--column lds--stack--align-start lds--stack--justify-start"
+  >
+    Test
+  </div>
+</div>
+`;
+
 exports[`Stack > should render with wrap = true 1`] = `
 <div>
   <div
