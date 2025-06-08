@@ -5,7 +5,8 @@ export interface StackProps extends PropsWithChildren {
   align?: 'start' | 'center' | 'end' | 'baseline' | 'stretch';
   justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
-  wrap?: true | 'nowrap' | 'wrap' | 'wrap-reverse';
+  wrap?: true | 'nowrap' | 'wrap' | 'mobile' | 'wrap-reverse';
+  fullWidth?: boolean;
   as?:
     | 'div'
     | 'section'
