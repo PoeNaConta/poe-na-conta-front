@@ -1,11 +1,19 @@
 /// <reference types="vitest" /> /// <reference types="vite/client" />
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import { TanStackRouterVite } from '@tanstack/router-plugin/vite';
 import * as path from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    TanStackRouterVite({
+      routesDirectory: './src/pages',
+      routeToken: 'page',
+      routeFileIgnorePattern: '.*(components|view|controller).*',
+    }),
+    react(),
+  ],
   resolve: {
     alias: {
       src: path.resolve(__dirname, './src/'),
@@ -31,6 +39,7 @@ export default defineConfig({
         'stryker-tmp/**',
         '.stryker-tmp/**',
         './src/main.tsx',
+        './src/routeTree.gen.ts',
         './.storybook/*',
         '**/*.stories.{ts,tsx,js,jsx}',
       ],

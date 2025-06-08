@@ -27,6 +27,8 @@
   },
   "dependencies": {
     "@stryker-mutator/core": "^8.7.1",
+    "@tanstack/react-router": "^1.120.11",
+    "@tanstack/react-router-devtools": "^1.120.11",
     "commitlint": "^19.8.0",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
@@ -57,6 +59,7 @@
     "@stryker-mutator/jest-runner": "^8.7.1",
     "@stryker-mutator/typescript-checker": "^8.7.1",
     "@stryker-mutator/vitest-runner": "^8.7.1",
+    "@tanstack/router-plugin": "^1.120.15",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.2.0",
