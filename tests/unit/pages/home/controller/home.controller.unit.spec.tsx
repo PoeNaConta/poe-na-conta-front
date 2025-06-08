@@ -1,5 +1,5 @@
 import React from 'react';
-import HomeController from '@pages/home/index.page';
+import HomeController from '@pages/home';
 
 import { render, screen } from '@testing-library/react';
 
