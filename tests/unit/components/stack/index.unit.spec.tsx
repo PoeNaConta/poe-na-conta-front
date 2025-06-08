@@ -31,6 +31,12 @@ describe('Stack', () => {
     expect(container).toMatchSnapshot();
   });
 
+  it('should render with fullWidth = true', () => {
+    const { container } = render(<Stack fullWidth>Test</Stack>);
+
+    expect(container).toMatchSnapshot();
+  });
+
   it('should render with custom element', () => {
     const { container } = render(<Stack as="main">Test</Stack>);
 

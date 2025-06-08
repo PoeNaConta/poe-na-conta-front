@@ -3,9 +3,20 @@
   flex-direction: column;
 }
 
+/* Full Width */
+.lds--stack--full-width {
+  width: 100%;
+}
+
 /* Wrapping */
 .lds--stack.lds--stack--wrap {
   flex-wrap: wrap;
+}
+
+@media (max-width: 768px) {
+  .lds--stack.lds--stack--mobile {
+    flex-wrap: wrap;
+  }
 }
 
 .lds--stack.lds--stack--nowrap {

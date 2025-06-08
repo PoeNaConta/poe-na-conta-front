@@ -11,6 +11,7 @@ export default function Stack({
   wrap = 'nowrap',
   as: element = 'div',
   children,
+  fullWidth,
 }: StackProps) {
   const base = 'lds--stack';
 
@@ -18,8 +19,12 @@ export default function Stack({
     return wrap === true ? 'wrap' : wrap;
   };
 
+  const getFullWidthModifier = () => {
+    return fullWidth ? `${base}--full-width` : '';
+  };
+
   const className = removeSpaces(
-    `${base} ${base}--${getWrapModifier()} ${base}--space-${space} ${base}--direction--${direction} ${base}--align-${align} ${base}--justify-${justify}`,
+    `${base} ${base}--${getWrapModifier()} ${getFullWidthModifier()} ${base}--space-${space} ${base}--direction--${direction} ${base}--align-${align} ${base}--justify-${justify}`,
   );
 
   return createElement(element, { className }, children);
