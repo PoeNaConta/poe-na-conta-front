@@ -28,3 +28,5 @@ reports
 .stryker-tmp
 
 *storybook.log
+
+.env
