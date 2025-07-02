@@ -2,17 +2,18 @@ import Button from '@components/button';
 import ButtonLayout from '@components/button-layout';
 import Input from '@components/input';
 import Stack from '@components/stack';
+import { CustomStackAsProp } from '@components/stack/types';
 import Text from '@components/text';
+import { useCallback } from 'react';
 
 export default function RegisterForm() {
+  const FormWrapper = useCallback<CustomStackAsProp>(
+    ({ className, children }) => <form className={className}>{children}</form>,
+    [],
+  );
+
   return (
-    <Stack
-      as={({ className, children }) => (
-        <form className={className}>{children}</form>
-      )}
-      align="stretch"
-      fullWidth
-    >
+    <Stack as={FormWrapper} align="stretch" fullWidth>
       <Text as="h3" weight="bold" center secondary>
         Registre-se
       </Text>

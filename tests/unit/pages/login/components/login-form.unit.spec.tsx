@@ -4,7 +4,15 @@ import { render } from '@testing-library/react';
 
 describe('LoginForm', () => {
   it('should render LoginForm correctly', () => {
-    const { container } = render(<LoginForm />);
+    const { container } = render(
+      <LoginForm
+        isLoadingLogin={false}
+        userLoginBody={{ useremail: '', passwordhash: '' }}
+        errorMessage={''}
+        onSubmit={vi.fn()}
+        onChange={vi.fn()}
+      />,
+    );
 
     expect(container).toMatchSnapshot();
   });
