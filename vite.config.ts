@@ -10,7 +10,7 @@ export default defineConfig({
     TanStackRouterVite({
       routesDirectory: './src/pages',
       routeToken: 'page',
-      routeFileIgnorePattern: '.*(components|view|controller).*',
+      routeFileIgnorePattern: '.*(components|view|controller|types|hooks).*',
     }),
     react(),
   ],
@@ -20,6 +20,7 @@ export default defineConfig({
       '@pages': path.resolve(__dirname, './src/pages/'),
       '@components': path.resolve(__dirname, './src/components/'),
       '@utils': path.resolve(__dirname, './src/utils/'),
+      '@services': path.resolve(__dirname, './src/services/'),
       '@tests': path.resolve(__dirname, './tests/'),
     },
   },
