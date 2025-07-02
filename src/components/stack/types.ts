@@ -7,14 +7,20 @@ export interface StackProps extends PropsWithChildren {
   direction?: 'row' | 'column' | 'row-reverse' | 'column-reverse';
   wrap?: true | 'nowrap' | 'wrap' | 'mobile' | 'wrap-reverse';
   fullWidth?: boolean;
-  as?:
-    | 'div'
-    | 'section'
-    | 'article'
-    | 'aside'
-    | 'header'
-    | 'footer'
-    | 'nav'
-    | 'main'
-    | FunctionComponent<PropsWithChildren & { className: string }>;
+  as?: StackAsProp;
 }
+
+export type StackAsProp =
+  | 'div'
+  | 'section'
+  | 'article'
+  | 'aside'
+  | 'header'
+  | 'footer'
+  | 'nav'
+  | 'main'
+  | CustomStackAsProp;
+
+export type CustomStackAsProp = FunctionComponent<
+  PropsWithChildren & { className: string }
+>;

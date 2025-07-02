@@ -92,7 +92,9 @@ exports[`LoginView > should render Login view correctly 1`] = `
             Email
             <input
               class="lds--input__input"
+              name="email"
               placeholder="digite seu email"
+              value=""
             />
           </label>
         </div>
@@ -105,7 +107,10 @@ exports[`LoginView > should render Login view correctly 1`] = `
             Senha
             <input
               class="lds--input__input"
+              name="password"
               placeholder="informe sua senha"
+              type="password"
+              value=""
             />
           </label>
         </div>
