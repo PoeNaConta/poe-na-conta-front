@@ -11,6 +11,7 @@ export default defineConfig({
       routesDirectory: './src/pages',
       routeToken: 'page',
       routeFileIgnorePattern: '.*(components|view|controller|types|hooks).*',
+      semicolons: true,
     }),
     react(),
   ],
