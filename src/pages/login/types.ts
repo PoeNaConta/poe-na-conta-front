@@ -1,17 +1,23 @@
 import { UserLoginBody } from '@services/login/types';
+import { UserRegisterBody } from '@services/register/types';
 
 export interface LoginViewProps {
-  isLoadingLogin: boolean;
-  userLoginBody: UserLoginBody;
+  registerFormProps: RegisterFormProps;
+  loginFormProps: LoginFormProps;
+}
+
+export interface RegisterFormProps {
+  isLoading: boolean;
+  userRegisterBody: UserRegisterBody;
   errorMessage: string;
-  onLogin: (e: React.FormEvent<HTMLFormElement>) => void;
-  onLoginChange: (key: keyof UserLoginBody, value: string) => void;
+  handleRegister: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleChange: (key: keyof UserRegisterBody, value: string) => void;
 }
 
 export interface LoginFormProps {
-  isLoadingLogin: boolean;
+  isLoading: boolean;
   userLoginBody: UserLoginBody;
   errorMessage: string;
-  onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
-  onChange: (key: keyof UserLoginBody, value: string) => void;
+  handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
+  handleChange: (key: keyof UserLoginBody, value: string) => void;
 }

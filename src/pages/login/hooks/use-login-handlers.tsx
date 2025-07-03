@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { LoginResponse, UserLoginBody } from '@services/login/types';
+import { UserLoginResponse, UserLoginBody } from '@services/login/types';
 import loginService from '@services/login';
 import { useNavigate } from '@tanstack/react-router';
 import { AxiosError } from 'axios';
@@ -28,9 +28,10 @@ export default function useLoginHandlers() {
         setIsLoading(true);
         await loginService(userLoginBodyRef.current);
         redirect({ to: '/home' });
-      } catch (error) {
-        const errorMessage = (error as AxiosError<LoginResponse>).response?.data
-          .error;
+      } catch (err) {
+        const error = err as AxiosError<UserLoginResponse>;
+        const errorMessage = error.response?.data.error;
+
         setErrorMessage(
           errorMessage ?? 'Algo deu errado ao logar, tente novamente',
         );

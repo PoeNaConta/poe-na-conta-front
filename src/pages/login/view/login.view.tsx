@@ -6,11 +6,8 @@ import RegisterForm from '../components/register-form';
 import { LoginViewProps } from '../types';
 
 export default function Login({
-  isLoadingLogin,
-  userLoginBody,
-  errorMessage,
-  onLogin: handleLogin,
-  onLoginChange: handleLoginChange,
+  registerFormProps,
+  loginFormProps,
 }: LoginViewProps) {
   return (
     <>
@@ -22,7 +19,7 @@ export default function Login({
           align="stretch"
           space="xxl"
         >
-          <RegisterForm />
+          <RegisterForm {...registerFormProps} />
 
           <Stack align="center" justify="center">
             <Text secondary weight="bold">
@@ -30,13 +27,7 @@ export default function Login({
             </Text>
           </Stack>
 
-          <LoginForm
-            isLoadingLogin={isLoadingLogin}
-            userLoginBody={userLoginBody}
-            errorMessage={errorMessage}
-            onSubmit={handleLogin}
-            onChange={handleLoginChange}
-          />
+          <LoginForm {...loginFormProps} />
         </Stack>
       </Card>
     </>

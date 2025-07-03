@@ -13,4 +13,6 @@ export interface UserLoginErrorResponseData {
   error: string;
 }
 
-export type LoginResponse = UserLoginErrorResponseData | UserLoginResponseData;
+export type UserLoginResponse =
+  | UserLoginErrorResponseData
+  | UserLoginResponseData;

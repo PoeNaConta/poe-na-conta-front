@@ -20,6 +20,7 @@ exports[`RegisterForm > should render RegisterForm correctly 1`] = `
         <input
           class="lds--input__input"
           placeholder="seu nome"
+          value=""
         />
       </label>
     </div>
@@ -33,6 +34,7 @@ exports[`RegisterForm > should render RegisterForm correctly 1`] = `
         <input
           class="lds--input__input"
           placeholder="digite seu email"
+          value=""
         />
       </label>
     </div>
@@ -46,6 +48,7 @@ exports[`RegisterForm > should render RegisterForm correctly 1`] = `
         <input
           class="lds--input__input"
           placeholder="crie uma senha"
+          value=""
         />
       </label>
     </div>
