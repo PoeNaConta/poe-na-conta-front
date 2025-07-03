@@ -26,6 +26,7 @@ exports[`LoginView > should render Login view correctly 1`] = `
             <input
               class="lds--input__input"
               placeholder="seu nome"
+              value=""
             />
           </label>
         </div>
@@ -39,6 +40,7 @@ exports[`LoginView > should render Login view correctly 1`] = `
             <input
               class="lds--input__input"
               placeholder="digite seu email"
+              value=""
             />
           </label>
         </div>
@@ -52,6 +54,7 @@ exports[`LoginView > should render Login view correctly 1`] = `
             <input
               class="lds--input__input"
               placeholder="crie uma senha"
+              value=""
             />
           </label>
         </div>

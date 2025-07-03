@@ -1,7 +1,7 @@
 export interface UserRegisterBody {
   name: string;
   useremail: string;
-  paswordhash: string;
+  passwordhash: string;
 }
 
 export interface UserRegisterResponseData {

@@ -4,12 +4,23 @@ import Input from '@components/input';
 import Stack from '@components/stack';
 import { CustomStackAsProp } from '@components/stack/types';
 import Text from '@components/text';
+import { RegisterFormProps } from '@pages/login/types';
 import { useCallback } from 'react';
 
-export default function RegisterForm() {
+export default function RegisterForm({
+  isLoading,
+  errorMessage,
+  userRegisterBody,
+  handleChange,
+  handleRegister,
+}: RegisterFormProps) {
   const FormWrapper = useCallback<CustomStackAsProp>(
-    ({ className, children }) => <form className={className}>{children}</form>,
-    [],
+    ({ className, children }) => (
+      <form className={className} onSubmit={handleRegister}>
+        {children}
+      </form>
+    ),
+    [handleRegister],
   );
 
   return (
@@ -18,17 +29,34 @@ export default function RegisterForm() {
         Registre-se
       </Text>
 
-      <Input label="Nome" placeholder="seu nome" />
+      <Input
+        label="Nome"
+        placeholder="seu nome"
+        value={userRegisterBody.name}
+        onChange={(e) => handleChange('name', e.target.value)}
+      />
 
-      <Input label="Email" placeholder="digite seu email" />
+      <Input
+        label="Email"
+        placeholder="digite seu email"
+        value={userRegisterBody.useremail}
+        onChange={(e) => handleChange('useremail', e.target.value)}
+      />
 
-      <Input label="Senha" placeholder="crie uma senha" />
+      <Input
+        label="Senha"
+        placeholder="crie uma senha"
+        value={userRegisterBody.passwordhash}
+        onChange={(e) => handleChange('passwordhash', e.target.value)}
+      />
+
+      {Boolean(errorMessage) && <Text>{errorMessage}</Text>}
 
       <ButtonLayout
         column
         primaryButton={
-          <Button primary type="submit">
-            Submit
+          <Button primary type="submit" disabled={isLoading}>
+            {isLoading ? 'Carregando...' : 'Submit'}
           </Button>
         }
       />

@@ -8,19 +8,19 @@ import { LoginFormProps } from '@pages/login/types';
 import { useCallback } from 'react';
 
 export default function LoginForm({
-  isLoadingLogin,
+  isLoading,
   userLoginBody,
   errorMessage,
-  onSubmit: handleSubmit,
-  onChange: handleChange,
+  handleLogin,
+  handleChange,
 }: LoginFormProps) {
   const FormWrapper = useCallback<CustomStackAsProp>(
     ({ className, children }) => (
-      <form className={className} onSubmit={handleSubmit}>
+      <form className={className} onSubmit={handleLogin}>
         {children}
       </form>
     ),
-    [handleSubmit],
+    [handleLogin],
   );
 
   return (
@@ -51,8 +51,8 @@ export default function LoginForm({
       <ButtonLayout
         column
         primaryButton={
-          <Button primary type="submit" disabled={isLoadingLogin}>
-            {isLoadingLogin ? 'Carregando...' : 'Login'}
+          <Button primary type="submit" disabled={isLoading}>
+            {isLoading ? 'Carregando...' : 'Login'}
           </Button>
         }
         secondaryButton={
