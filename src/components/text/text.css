@@ -6,6 +6,10 @@
   align-self: center;
 }
 
+.lds--text--justify {
+  text-align: justify;
+}
+
 .lds--text--xs {
   font-size: var(--lds-fontsize-xs);
 }
