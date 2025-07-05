@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './pages/__root';
 import { Route as IndexImport } from './pages/index';
+import { Route as VerifyEmailIndexImport } from './pages/verify-email/index';
 import { Route as LoginIndexImport } from './pages/login/index';
 import { Route as HomeIndexImport } from './pages/home/index';
 
@@ -20,6 +21,12 @@ import { Route as HomeIndexImport } from './pages/home/index';
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any);
+
+const VerifyEmailIndexRoute = VerifyEmailIndexImport.update({
+  id: '/verify-email/',
+  path: '/verify-email/',
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -60,6 +67,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginIndexImport;
       parentRoute: typeof rootRoute;
     };
+    '/verify-email/': {
+      id: '/verify-email/';
+      path: '/verify-email';
+      fullPath: '/verify-email';
+      preLoaderRoute: typeof VerifyEmailIndexImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
@@ -69,12 +83,14 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute;
   '/home': typeof HomeIndexRoute;
   '/login': typeof LoginIndexRoute;
+  '/verify-email': typeof VerifyEmailIndexRoute;
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute;
   '/home': typeof HomeIndexRoute;
   '/login': typeof LoginIndexRoute;
+  '/verify-email': typeof VerifyEmailIndexRoute;
 }
 
 export interface FileRoutesById {
@@ -82,14 +98,15 @@ export interface FileRoutesById {
   '/': typeof IndexRoute;
   '/home/': typeof HomeIndexRoute;
   '/login/': typeof LoginIndexRoute;
+  '/verify-email/': typeof VerifyEmailIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '/home' | '/login';
+  fullPaths: '/' | '/home' | '/login' | '/verify-email';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '/home' | '/login';
-  id: '__root__' | '/' | '/home/' | '/login/';
+  to: '/' | '/home' | '/login' | '/verify-email';
+  id: '__root__' | '/' | '/home/' | '/login/' | '/verify-email/';
   fileRoutesById: FileRoutesById;
 }
 
@@ -97,12 +114,14 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute;
   HomeIndexRoute: typeof HomeIndexRoute;
   LoginIndexRoute: typeof LoginIndexRoute;
+  VerifyEmailIndexRoute: typeof VerifyEmailIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   HomeIndexRoute: HomeIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
+  VerifyEmailIndexRoute: VerifyEmailIndexRoute,
 };
 
 export const routeTree = rootRoute
@@ -117,7 +136,8 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/home/",
-        "/login/"
+        "/login/",
+        "/verify-email/"
       ]
     },
     "/": {
@@ -128,6 +148,9 @@ export const routeTree = rootRoute
     },
     "/login/": {
       "filePath": "login/index.tsx"
+    },
+    "/verify-email/": {
+      "filePath": "verify-email/index.tsx"
     }
   }
 }
