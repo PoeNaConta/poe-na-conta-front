@@ -15,14 +15,14 @@
 .lds--center-layout > * {
   min-height: 100vh;
 }
+
 .lds--center-layout--content > * {
   height: 100%;
-  /* width: 100%; */
+  min-width: 0;
 }
 
-/* #root,
-.lds--center-layout, 
-body {
-  height: 100%;
-  width: 100%;
-} */
+@media (max-width: 768px) {
+  .lds--center-layout--content {
+    min-width: 90%;
+  }
+}
