@@ -27,7 +27,7 @@ export default function useLoginHandlers() {
       try {
         setIsLoading(true);
         await loginService(userLoginBodyRef.current);
-        redirect({ to: '/home' });
+        redirect({ to: '/' });
       } catch (err) {
         const error = err as AxiosError<UserLoginResponse>;
         const errorMessage = error.response?.data.error;

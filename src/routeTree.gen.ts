@@ -11,15 +11,14 @@
 // Import Routes
 
 import { Route as rootRoute } from './pages/__root';
-import { Route as IndexImport } from './pages/index';
+import { Route as WithSidebarLayoutLayoutImport } from './pages/_with-sidebar-layout/layout';
 import { Route as LoginIndexImport } from './pages/login/index';
-import { Route as HomeIndexImport } from './pages/home/index';
+import { Route as WithSidebarLayouthomeIndexImport } from './pages/_with-sidebar-layout/(home)/index';
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+const WithSidebarLayoutLayoutRoute = WithSidebarLayoutLayoutImport.update({
+  id: '/_with-sidebar-layout',
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -29,28 +28,23 @@ const LoginIndexRoute = LoginIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any);
 
-const HomeIndexRoute = HomeIndexImport.update({
-  id: '/home/',
-  path: '/home/',
-  getParentRoute: () => rootRoute,
-} as any);
+const WithSidebarLayouthomeIndexRoute = WithSidebarLayouthomeIndexImport.update(
+  {
+    id: '/(home)/',
+    path: '/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any,
+);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/';
-      path: '/';
-      fullPath: '/';
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    '/home/': {
-      id: '/home/';
-      path: '/home';
-      fullPath: '/home';
-      preLoaderRoute: typeof HomeIndexImport;
+    '/_with-sidebar-layout': {
+      id: '/_with-sidebar-layout';
+      path: '';
+      fullPath: '';
+      preLoaderRoute: typeof WithSidebarLayoutLayoutImport;
       parentRoute: typeof rootRoute;
     };
     '/login/': {
@@ -60,48 +54,70 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof LoginIndexImport;
       parentRoute: typeof rootRoute;
     };
+    '/_with-sidebar-layout/(home)/': {
+      id: '/_with-sidebar-layout/(home)/';
+      path: '/';
+      fullPath: '/';
+      preLoaderRoute: typeof WithSidebarLayouthomeIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
   }
 }
 
 // Create and export the route tree
 
+interface WithSidebarLayoutLayoutRouteChildren {
+  WithSidebarLayouthomeIndexRoute: typeof WithSidebarLayouthomeIndexRoute;
+}
+
+const WithSidebarLayoutLayoutRouteChildren: WithSidebarLayoutLayoutRouteChildren =
+  {
+    WithSidebarLayouthomeIndexRoute: WithSidebarLayouthomeIndexRoute,
+  };
+
+const WithSidebarLayoutLayoutRouteWithChildren =
+  WithSidebarLayoutLayoutRoute._addFileChildren(
+    WithSidebarLayoutLayoutRouteChildren,
+  );
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute;
-  '/home': typeof HomeIndexRoute;
+  '': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login': typeof LoginIndexRoute;
+  '/': typeof WithSidebarLayouthomeIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute;
-  '/home': typeof HomeIndexRoute;
   '/login': typeof LoginIndexRoute;
+  '/': typeof WithSidebarLayouthomeIndexRoute;
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute;
-  '/': typeof IndexRoute;
-  '/home/': typeof HomeIndexRoute;
+  '/_with-sidebar-layout': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login/': typeof LoginIndexRoute;
+  '/_with-sidebar-layout/(home)/': typeof WithSidebarLayouthomeIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '/home' | '/login';
+  fullPaths: '' | '/login' | '/';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '/home' | '/login';
-  id: '__root__' | '/' | '/home/' | '/login/';
+  to: '/login' | '/';
+  id:
+    | '__root__'
+    | '/_with-sidebar-layout'
+    | '/login/'
+    | '/_with-sidebar-layout/(home)/';
   fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  HomeIndexRoute: typeof HomeIndexRoute;
+  WithSidebarLayoutLayoutRoute: typeof WithSidebarLayoutLayoutRouteWithChildren;
   LoginIndexRoute: typeof LoginIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  HomeIndexRoute: HomeIndexRoute,
+  WithSidebarLayoutLayoutRoute: WithSidebarLayoutLayoutRouteWithChildren,
   LoginIndexRoute: LoginIndexRoute,
 };
 
@@ -115,19 +131,22 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/home/",
+        "/_with-sidebar-layout",
         "/login/"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/home/": {
-      "filePath": "home/index.tsx"
+    "/_with-sidebar-layout": {
+      "filePath": "_with-sidebar-layout/layout.tsx",
+      "children": [
+        "/_with-sidebar-layout/(home)/"
+      ]
     },
     "/login/": {
       "filePath": "login/index.tsx"
+    },
+    "/_with-sidebar-layout/(home)/": {
+      "filePath": "_with-sidebar-layout/(home)/index.tsx",
+      "parent": "/_with-sidebar-layout"
     }
   }
 }
