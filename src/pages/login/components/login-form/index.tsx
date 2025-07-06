@@ -32,6 +32,7 @@ export default function LoginForm({
       <Input
         label="Email"
         name="email"
+        type="email"
         value={userLoginBody.useremail}
         placeholder="digite seu email"
         onChange={(event) => handleChange('useremail', event.target.value)}

@@ -10,4 +10,5 @@ export interface TextProps extends PropsWithChildren {
   tertiary?: boolean;
   onBrand?: boolean;
   center?: boolean;
+  justify?: boolean;
 }

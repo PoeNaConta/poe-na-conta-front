@@ -14,6 +14,7 @@ export default function Text({
   secondary,
   tertiary,
   onBrand,
+  justify,
 }: TextProps) {
   const base = 'lds--text';
 
@@ -30,8 +31,13 @@ export default function Text({
     return '';
   };
 
+  const getJustifyModifier = () => {
+    if (justify) return `${base}--justify`;
+    return '';
+  };
+
   const className = removeSpaces(
-    `${base} ${base}--${weight} ${base}--${size} ${getColorModifier()} ${getCenterModifier()}`,
+    `${base} ${base}--${weight} ${base}--${size} ${getColorModifier()} ${getCenterModifier()} ${getJustifyModifier()}`,
   );
 
   return createElement(element, { className, htmlFor }, children);
