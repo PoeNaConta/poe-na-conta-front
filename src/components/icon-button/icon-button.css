@@ -1,0 +1,89 @@
+.lds--icon-button {
+  background-color: var(--lds-color-pure-white);
+  color: var(--lds-text-color-default);
+  font-family: var(--lds-fontfamily-sans);
+  font-size: var(--lds-fontsize-md);
+  font-weight: var(--lds-fontweight-medium);
+
+  border-radius: 50px;
+  border: 0;
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  transition: padding-right 0.2s ease;
+
+  cursor: pointer;
+}
+
+button.lds--icon-button {
+  transition: none;
+}
+
+button.lds--icon-button > svg {
+  flex-shrink: 0;
+}
+
+button.lds--icon-button:hover {
+  transition: padding-right 0.2s ease;
+  animation: fake-width-grow 0.1s ease-in forwards;
+}
+
+@keyframes fake-width-grow {
+  0% {
+    width: 50px;
+  }
+  99% {
+    width: 100px;
+  }
+  100% {
+    width: fit-content;
+  }
+}
+
+.lds--icon-button:hover {
+  padding-inline: calc(var(--lds-spacing-lg) - 1px);
+  gap: var(--lds-spacing-sm);
+  width: fit-content;
+}
+
+.lds--icon-button--title {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  transform: translateX(-20px);
+  transition:
+    transform 0.4s ease,
+    opacity 0.2s ease;
+}
+
+.lds--icon-button:hover .lds--icon-button--title {
+  opacity: 1;
+  transform: translateX(0);
+  max-width: 200px;
+  transition:
+    transform 0.4s ease,
+    opacity 0.2s ease;
+}
+
+.lds--icon-button:not(.lds--icon-button--primary):hover {
+  color: var(--lds-text-color-primary);
+}
+
+.lds--icon-button--active:not(.lds--icon-button--primary) {
+  color: var(--lds-text-color-primary);
+  box-shadow: 0px 1px 2px
+    color-mix(in srgb, var(--lds-color-dark), transparent 75%);
+}
+
+.lds--icon-button--primary {
+  background-color: var(--lds-color-brand);
+  color: var(--lds-text-color-onbrand);
+  box-shadow: 0px 1px 2px
+    color-mix(in srgb, var(--lds-color-dark), transparent 75%);
+}
