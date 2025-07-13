@@ -29,7 +29,10 @@ export default function CenterLayout({
         )}
         <div
           className={`${baseClassName}--content`}
-          style={{ width: `${width}%`, height: `${height}%` }}
+          style={{
+            width: width ? `${width}%` : 'auto',
+            height: height ? `${height}%` : 'auto',
+          }}
         >
           {children}
         </div>

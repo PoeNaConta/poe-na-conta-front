@@ -1,19 +1,16 @@
 .lds--center-layout {
-  min-height: 100vh;
-  min-width: 100vw;
   height: 100%;
   width: 100%;
 
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-block: var(--lds-spacing-xxl);
 
   background-color: var(--lds-color-white);
 }
 
 .lds--center-layout > * {
-  min-height: 100vh;
+  width: 100%;
 }
 
 .lds--center-layout--content > * {
@@ -22,6 +19,10 @@
 }
 
 @media (max-width: 768px) {
+  .lds--center-layout {
+    padding-block: var(--lds-spacing-xxl);
+  }
+
   .lds--center-layout--content {
     min-width: 90%;
   }
