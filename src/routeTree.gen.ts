@@ -13,6 +13,9 @@
 import { Route as rootRoute } from './pages/__root';
 import { Route as WithSidebarLayoutLayoutImport } from './pages/_with-sidebar-layout/layout';
 import { Route as LoginIndexImport } from './pages/login/index';
+import { Route as WithSidebarLayoutTransactionsIndexImport } from './pages/_with-sidebar-layout/transactions/index';
+import { Route as WithSidebarLayoutProfileIndexImport } from './pages/_with-sidebar-layout/profile/index';
+import { Route as WithSidebarLayoutCategoriesIndexImport } from './pages/_with-sidebar-layout/categories/index';
 import { Route as WithSidebarLayouthomeIndexImport } from './pages/_with-sidebar-layout/(home)/index';
 
 // Create/Update Routes
@@ -27,6 +30,27 @@ const LoginIndexRoute = LoginIndexImport.update({
   path: '/login/',
   getParentRoute: () => rootRoute,
 } as any);
+
+const WithSidebarLayoutTransactionsIndexRoute =
+  WithSidebarLayoutTransactionsIndexImport.update({
+    id: '/transactions/',
+    path: '/transactions/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any);
+
+const WithSidebarLayoutProfileIndexRoute =
+  WithSidebarLayoutProfileIndexImport.update({
+    id: '/profile/',
+    path: '/profile/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any);
+
+const WithSidebarLayoutCategoriesIndexRoute =
+  WithSidebarLayoutCategoriesIndexImport.update({
+    id: '/categories/',
+    path: '/categories/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any);
 
 const WithSidebarLayouthomeIndexRoute = WithSidebarLayouthomeIndexImport.update(
   {
@@ -61,6 +85,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WithSidebarLayouthomeIndexImport;
       parentRoute: typeof WithSidebarLayoutLayoutImport;
     };
+    '/_with-sidebar-layout/categories/': {
+      id: '/_with-sidebar-layout/categories/';
+      path: '/categories';
+      fullPath: '/categories';
+      preLoaderRoute: typeof WithSidebarLayoutCategoriesIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
+    '/_with-sidebar-layout/profile/': {
+      id: '/_with-sidebar-layout/profile/';
+      path: '/profile';
+      fullPath: '/profile';
+      preLoaderRoute: typeof WithSidebarLayoutProfileIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
+    '/_with-sidebar-layout/transactions/': {
+      id: '/_with-sidebar-layout/transactions/';
+      path: '/transactions';
+      fullPath: '/transactions';
+      preLoaderRoute: typeof WithSidebarLayoutTransactionsIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
   }
 }
 
@@ -68,11 +113,19 @@ declare module '@tanstack/react-router' {
 
 interface WithSidebarLayoutLayoutRouteChildren {
   WithSidebarLayouthomeIndexRoute: typeof WithSidebarLayouthomeIndexRoute;
+  WithSidebarLayoutCategoriesIndexRoute: typeof WithSidebarLayoutCategoriesIndexRoute;
+  WithSidebarLayoutProfileIndexRoute: typeof WithSidebarLayoutProfileIndexRoute;
+  WithSidebarLayoutTransactionsIndexRoute: typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 const WithSidebarLayoutLayoutRouteChildren: WithSidebarLayoutLayoutRouteChildren =
   {
     WithSidebarLayouthomeIndexRoute: WithSidebarLayouthomeIndexRoute,
+    WithSidebarLayoutCategoriesIndexRoute:
+      WithSidebarLayoutCategoriesIndexRoute,
+    WithSidebarLayoutProfileIndexRoute: WithSidebarLayoutProfileIndexRoute,
+    WithSidebarLayoutTransactionsIndexRoute:
+      WithSidebarLayoutTransactionsIndexRoute,
   };
 
 const WithSidebarLayoutLayoutRouteWithChildren =
@@ -84,11 +137,17 @@ export interface FileRoutesByFullPath {
   '': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login': typeof LoginIndexRoute;
   '/': typeof WithSidebarLayouthomeIndexRoute;
+  '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
+  '/profile': typeof WithSidebarLayoutProfileIndexRoute;
+  '/transactions': typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 export interface FileRoutesByTo {
   '/login': typeof LoginIndexRoute;
   '/': typeof WithSidebarLayouthomeIndexRoute;
+  '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
+  '/profile': typeof WithSidebarLayoutProfileIndexRoute;
+  '/transactions': typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 export interface FileRoutesById {
@@ -96,18 +155,24 @@ export interface FileRoutesById {
   '/_with-sidebar-layout': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login/': typeof LoginIndexRoute;
   '/_with-sidebar-layout/(home)/': typeof WithSidebarLayouthomeIndexRoute;
+  '/_with-sidebar-layout/categories/': typeof WithSidebarLayoutCategoriesIndexRoute;
+  '/_with-sidebar-layout/profile/': typeof WithSidebarLayoutProfileIndexRoute;
+  '/_with-sidebar-layout/transactions/': typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '' | '/login' | '/';
+  fullPaths: '' | '/login' | '/' | '/categories' | '/profile' | '/transactions';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/login' | '/';
+  to: '/login' | '/' | '/categories' | '/profile' | '/transactions';
   id:
     | '__root__'
     | '/_with-sidebar-layout'
     | '/login/'
-    | '/_with-sidebar-layout/(home)/';
+    | '/_with-sidebar-layout/(home)/'
+    | '/_with-sidebar-layout/categories/'
+    | '/_with-sidebar-layout/profile/'
+    | '/_with-sidebar-layout/transactions/';
   fileRoutesById: FileRoutesById;
 }
 
@@ -138,7 +203,10 @@ export const routeTree = rootRoute
     "/_with-sidebar-layout": {
       "filePath": "_with-sidebar-layout/layout.tsx",
       "children": [
-        "/_with-sidebar-layout/(home)/"
+        "/_with-sidebar-layout/(home)/",
+        "/_with-sidebar-layout/categories/",
+        "/_with-sidebar-layout/profile/",
+        "/_with-sidebar-layout/transactions/"
       ]
     },
     "/login/": {
@@ -146,6 +214,18 @@ export const routeTree = rootRoute
     },
     "/_with-sidebar-layout/(home)/": {
       "filePath": "_with-sidebar-layout/(home)/index.tsx",
+      "parent": "/_with-sidebar-layout"
+    },
+    "/_with-sidebar-layout/categories/": {
+      "filePath": "_with-sidebar-layout/categories/index.tsx",
+      "parent": "/_with-sidebar-layout"
+    },
+    "/_with-sidebar-layout/profile/": {
+      "filePath": "_with-sidebar-layout/profile/index.tsx",
+      "parent": "/_with-sidebar-layout"
+    },
+    "/_with-sidebar-layout/transactions/": {
+      "filePath": "_with-sidebar-layout/transactions/index.tsx",
       "parent": "/_with-sidebar-layout"
     }
   }
