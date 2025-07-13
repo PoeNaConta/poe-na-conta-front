@@ -3,12 +3,12 @@ import {
   UserRegisterBody,
   UserRegisterResponse,
 } from '@services/register/types';
-// import { useNavigate } from '@tanstack/react-router';
+import { useNavigate } from '@tanstack/react-router';
 import { AxiosError } from 'axios';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 export default function useLoginHandlers() {
-  //   const redirect = useNavigate();
+  const redirect = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
   const [userRegisterBody, setUserRegisterBody] = useState<UserRegisterBody>({
@@ -31,7 +31,7 @@ export default function useLoginHandlers() {
       try {
         setIsLoading(true);
         await registerService(userRegisterBodyRef.current);
-        // redirect({ to: '/home' });
+        redirect({ to: '/verify-email' });
       } catch (err) {
         const error = err as AxiosError<UserRegisterResponse>;
         const errorMessage = error.response?.data.error;

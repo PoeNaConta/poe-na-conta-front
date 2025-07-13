@@ -38,6 +38,8 @@ export default function RegisterForm({
 
       <Input
         label="Email"
+        name="email"
+        type="email"
         placeholder="digite seu email"
         value={userRegisterBody.useremail}
         onChange={(e) => handleChange('useremail', e.target.value)}
@@ -45,6 +47,8 @@ export default function RegisterForm({
 
       <Input
         label="Senha"
+        name="password"
+        type="password"
         placeholder="crie uma senha"
         value={userRegisterBody.passwordhash}
         onChange={(e) => handleChange('passwordhash', e.target.value)}

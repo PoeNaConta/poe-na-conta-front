@@ -12,6 +12,7 @@
 
 import { Route as rootRoute } from './pages/__root';
 import { Route as WithSidebarLayoutLayoutImport } from './pages/_with-sidebar-layout/layout';
+import { Route as VerifyEmailIndexImport } from './pages/verify-email/index';
 import { Route as LoginIndexImport } from './pages/login/index';
 import { Route as WithSidebarLayoutTransactionsIndexImport } from './pages/_with-sidebar-layout/transactions/index';
 import { Route as WithSidebarLayoutProfileIndexImport } from './pages/_with-sidebar-layout/profile/index';
@@ -22,6 +23,12 @@ import { Route as WithSidebarLayouthomeIndexImport } from './pages/_with-sidebar
 
 const WithSidebarLayoutLayoutRoute = WithSidebarLayoutLayoutImport.update({
   id: '/_with-sidebar-layout',
+  getParentRoute: () => rootRoute,
+} as any);
+
+const VerifyEmailIndexRoute = VerifyEmailIndexImport.update({
+  id: '/verify-email/',
+  path: '/verify-email/',
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -76,6 +83,13 @@ declare module '@tanstack/react-router' {
       path: '/login';
       fullPath: '/login';
       preLoaderRoute: typeof LoginIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/verify-email/': {
+      id: '/verify-email/';
+      path: '/verify-email';
+      fullPath: '/verify-email';
+      preLoaderRoute: typeof VerifyEmailIndexImport;
       parentRoute: typeof rootRoute;
     };
     '/_with-sidebar-layout/(home)/': {
@@ -136,6 +150,7 @@ const WithSidebarLayoutLayoutRouteWithChildren =
 export interface FileRoutesByFullPath {
   '': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login': typeof LoginIndexRoute;
+  '/verify-email': typeof VerifyEmailIndexRoute;
   '/': typeof WithSidebarLayouthomeIndexRoute;
   '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
   '/profile': typeof WithSidebarLayoutProfileIndexRoute;
@@ -144,6 +159,7 @@ export interface FileRoutesByFullPath {
 
 export interface FileRoutesByTo {
   '/login': typeof LoginIndexRoute;
+  '/verify-email': typeof VerifyEmailIndexRoute;
   '/': typeof WithSidebarLayouthomeIndexRoute;
   '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
   '/profile': typeof WithSidebarLayoutProfileIndexRoute;
@@ -154,6 +170,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute;
   '/_with-sidebar-layout': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login/': typeof LoginIndexRoute;
+  '/verify-email/': typeof VerifyEmailIndexRoute;
   '/_with-sidebar-layout/(home)/': typeof WithSidebarLayouthomeIndexRoute;
   '/_with-sidebar-layout/categories/': typeof WithSidebarLayoutCategoriesIndexRoute;
   '/_with-sidebar-layout/profile/': typeof WithSidebarLayoutProfileIndexRoute;
@@ -162,13 +179,27 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '' | '/login' | '/' | '/categories' | '/profile' | '/transactions';
+  fullPaths:
+    | ''
+    | '/login'
+    | '/verify-email'
+    | '/'
+    | '/categories'
+    | '/profile'
+    | '/transactions';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/login' | '/' | '/categories' | '/profile' | '/transactions';
+  to:
+    | '/login'
+    | '/verify-email'
+    | '/'
+    | '/categories'
+    | '/profile'
+    | '/transactions';
   id:
     | '__root__'
     | '/_with-sidebar-layout'
     | '/login/'
+    | '/verify-email/'
     | '/_with-sidebar-layout/(home)/'
     | '/_with-sidebar-layout/categories/'
     | '/_with-sidebar-layout/profile/'
@@ -179,11 +210,13 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   WithSidebarLayoutLayoutRoute: typeof WithSidebarLayoutLayoutRouteWithChildren;
   LoginIndexRoute: typeof LoginIndexRoute;
+  VerifyEmailIndexRoute: typeof VerifyEmailIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   WithSidebarLayoutLayoutRoute: WithSidebarLayoutLayoutRouteWithChildren,
   LoginIndexRoute: LoginIndexRoute,
+  VerifyEmailIndexRoute: VerifyEmailIndexRoute,
 };
 
 export const routeTree = rootRoute
@@ -197,7 +230,8 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/_with-sidebar-layout",
-        "/login/"
+        "/login/",
+        "/verify-email/"
       ]
     },
     "/_with-sidebar-layout": {
@@ -211,6 +245,9 @@ export const routeTree = rootRoute
     },
     "/login/": {
       "filePath": "login/index.tsx"
+    },
+    "/verify-email/": {
+      "filePath": "verify-email/index.tsx"
     },
     "/_with-sidebar-layout/(home)/": {
       "filePath": "_with-sidebar-layout/(home)/index.tsx",
