@@ -6,7 +6,7 @@ export default function VerifyEmailController() {
   const redirect = useNavigate();
 
   const handleGoToHome = useCallback(() => {
-    redirect({ to: '/' });
+    redirect({ to: '/login' });
   }, [redirect]);
 
   return <VerifyEmail handleGoToHome={handleGoToHome} />;
