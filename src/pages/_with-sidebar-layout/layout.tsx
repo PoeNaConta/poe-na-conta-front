@@ -1,9 +1,7 @@
-import {
-  createFileRoute,
-  Link,
-  Outlet,
-  redirect,
-} from '@tanstack/react-router';
+import CenterLayout from '@components/center-layout';
+import Sidebar from '@components/sidebar';
+import Stack from '@components/stack';
+import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
 
 export const Route = createFileRoute('/_with-sidebar-layout')({
   beforeLoad: () => {
@@ -14,10 +12,12 @@ export const Route = createFileRoute('/_with-sidebar-layout')({
 
 function RouteComponent() {
   return (
-    <div>
-      <Link to="/"></Link>
-      Oia só, tamo na home
-      <Outlet />
-    </div>
+    <Stack direction="row" space="none" align="stretch" fullHeight>
+      <Sidebar />
+
+      <CenterLayout>
+        <Outlet />
+      </CenterLayout>
+    </Stack>
   );
 }
