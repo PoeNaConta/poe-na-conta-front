@@ -15,9 +15,13 @@
   align-items: center;
   justify-content: center;
 
-  transition: padding-right 0.2s ease;
-
   cursor: pointer;
+
+  position: relative;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-drag: none;
+  -moz-window-dragging: no-drag;
 }
 
 button.lds--icon-button {
@@ -28,57 +32,31 @@ button.lds--icon-button > svg {
   flex-shrink: 0;
 }
 
-button.lds--icon-button:hover {
-  transition: padding-right 0.2s ease;
-  animation: fake-width-grow 0.1s ease-in forwards;
-}
-
-@keyframes fake-width-grow {
-  0% {
-    width: 50px;
-  }
-  99% {
-    width: 100px;
-  }
-  100% {
-    width: fit-content;
-  }
-}
-
-.lds--icon-button:hover {
-  padding-inline: calc(var(--lds-spacing-lg) - 1px);
-  gap: var(--lds-spacing-sm);
-  width: fit-content;
-}
-
-.lds--icon-button--title {
-  opacity: 0;
-  max-width: 0;
-  overflow: hidden;
-  white-space: nowrap;
-  transform: translateX(-20px);
-  transition:
-    transform 0.4s ease,
-    opacity 0.2s ease;
+.lds--icon-button > svg {
+  background-color: inherit;
+  z-index: 40;
 }
 
 .lds--icon-button:hover .lds--icon-button--title {
   opacity: 1;
-  transform: translateX(0);
   max-width: 200px;
-  transition:
-    transform 0.4s ease,
-    opacity 0.2s ease;
+  transition: padding-left 0.4s ease;
 }
 
 .lds--icon-button:not(.lds--icon-button--primary):hover {
   color: var(--lds-text-color-primary);
 }
 
-.lds--icon-button--active:not(.lds--icon-button--primary) {
+.lds--icon-button--active:not(.lds--icon-button--primary):not(:hover) {
   color: var(--lds-text-color-primary);
   box-shadow: 0px 1px 2px
     color-mix(in srgb, var(--lds-color-dark), transparent 75%);
+}
+
+.lds--icon-button:not(.lds--icon-button--active):not(:hover) {
+  transition:
+    padding-left 0.4s ease,
+    box-shadow 0.8s ease;
 }
 
 .lds--icon-button--primary {
@@ -86,4 +64,41 @@ button.lds--icon-button:hover {
   color: var(--lds-text-color-onbrand);
   box-shadow: 0px 1px 2px
     color-mix(in srgb, var(--lds-color-dark), transparent 75%);
+}
+
+.lds--icon-button--primary .lds--icon-button--title {
+  background-color: var(--lds-color-brand);
+  color: var(--lds-text-color-onbrand);
+  box-shadow: 0px 1px 2px
+    color-mix(in srgb, var(--lds-color-dark), transparent 75%);
+}
+
+.lds--icon-button--active:not(.lds--icon-button--primary)
+  .lds--icon-button--title {
+  box-shadow: 0px 1px 2px
+    color-mix(in srgb, var(--lds-color-dark), transparent 75%);
+}
+
+.lds--icon-button--title {
+  position: absolute;
+  opacity: 0;
+
+  border-radius: 50px;
+  border: 0;
+  background-color: var(--lds-color-pure-white);
+  padding: calc(var(--lds-spacing-xl) - 7px);
+  transition: padding 3s ease;
+}
+
+.lds--icon-button--primary .lds--icon-button--title {
+  padding: calc(var(--lds-spacing-xl) - 8px);
+}
+
+.lds--icon-button:hover .lds--icon-button--title {
+  transition:
+    padding-left 0.4s ease,
+    box-shadow 0.4s ease;
+  padding-left: calc(var(--lds-spacing-xl) + var(--lds-spacing-xl));
+  opacity: 1;
+  left: 0%;
 }

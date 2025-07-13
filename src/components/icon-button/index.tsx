@@ -17,12 +17,12 @@ export default function IconButton({
   const getPrimaryModifier = useCallback(() => {
     if (primary) return `${classNameBase}--primary`;
     return '';
-  }, []);
+  }, [primary]);
 
   const getActiveModifier = useCallback(() => {
     if (active) return `${classNameBase}--active`;
     return '';
-  }, []);
+  }, [active]);
 
   return createElement(
     link ? 'a' : 'button',
@@ -30,6 +30,7 @@ export default function IconButton({
       className: removeSpaces(
         `${classNameBase} ${getPrimaryModifier()} ${getActiveModifier()} ${className}`,
       ),
+      draggable: false,
       ...rest,
     },
     icon,
