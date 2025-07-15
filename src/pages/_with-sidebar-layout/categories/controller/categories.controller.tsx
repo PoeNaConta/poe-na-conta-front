@@ -1,11 +1,14 @@
 import { useCallback, useEffect, useState } from 'react';
 import { CategoryObject } from '../types';
 import Categories from '../view/categories.view';
-// import { Route } from '..';
+import { Route } from '..';
 
 export default function CategoriesController() {
+  const initialCategories = Route.useLoaderData();
+
   const [searchValue, setSearchValue] = useState<string>('');
-  const [categories, setCategories] = useState<CategoryObject[]>([]);
+  const [categories, setCategories] =
+    useState<CategoryObject[]>(initialCategories);
   const [filteredCategories, setFilteredCategories] = useState<
     CategoryObject[]
   >([]);
