@@ -4,6 +4,7 @@
   flex-direction: column;
 
   gap: var(--lds-spacing-sm);
+  width: 100%;
 }
 
 .lds--input__input {
