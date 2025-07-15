@@ -14,7 +14,9 @@
   --lds-color-white: #f5f5f5;
   --lds-color-pure-white: #fff;
 
+  --lds-radius-none: 0px;
   --lds-radius: 8px;
+  --lds-radius-md: 8px;
   --lds-radius-xl: 20px;
 
   --lds-fontfamily-sans: Inter, sans-serif;

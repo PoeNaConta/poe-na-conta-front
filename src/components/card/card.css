@@ -3,9 +3,55 @@
   flex-direction: column;
 
   gap: var(--lds-spacing-lg);
-  padding: var(--lds-spacing-xxxl);
-  border-radius: var(--lds-radius-xl);
 
   background-color: var(--lds-color-pure-white);
   box-shadow: 0 1px 2px rgba(0, 0, 0, 25%);
+}
+
+.lds--card.lds--card--radius--none {
+  border-radius: var(--lds-radius-none);
+}
+
+.lds--card.lds--card--radius--md {
+  border-radius: var(--lds-radius-md);
+}
+
+.lds--card.lds--card--radius--xl {
+  border-radius: var(--lds-radius-xl);
+}
+
+.lds--card.lds--card--full-width {
+  width: 100%;
+}
+
+.lds--card.lds--card--padding--xxs {
+  padding: var(--lds-spacing-xxs);
+}
+
+.lds--card.lds--card--padding--xs {
+  padding: var(--lds-spacing-xs);
+}
+
+.lds--card.lds--card--padding--sm {
+  padding: var(--lds-spacing-sm);
+}
+
+.lds--card.lds--card--padding--md {
+  padding: var(--lds-spacing-md);
+}
+
+.lds--card.lds--card--padding--lg {
+  padding: var(--lds-spacing-lg);
+}
+
+.lds--card.lds--card--padding--xl {
+  padding: var(--lds-spacing-xl);
+}
+
+.lds--card.lds--card--padding--xxl {
+  padding: var(--lds-spacing-xxl);
+}
+
+.lds--card.lds--card--padding--xxxl {
+  padding: var(--lds-spacing-xxxl);
 }
