@@ -5,10 +5,12 @@ import Stack from '@components/stack';
 import { PlusIcon } from 'lucide-react';
 import CategoryRow from '../components/category-row';
 import { CategoryProps } from '../types';
+import Text from '@components/text';
 
 export default function Categories({
   categories,
   searchValue,
+  errorMessage,
   handleChangeSearch,
   handleAddCategory,
   handleRemoveCategory,
@@ -27,6 +29,8 @@ export default function Categories({
             <PlusIcon size={12} strokeWidth={4} /> ADICIONAR
           </Button>
         </Stack>
+
+        {Boolean(errorMessage) && <Text>{errorMessage}</Text>}
 
         <Stack>
           {categories.map((category) => (

@@ -2,11 +2,14 @@ import { useCallback, useEffect, useState } from 'react';
 import { CategoryObject } from '../types';
 import Categories from '../view/categories.view';
 import { Route } from '..';
+import { createCategory, fetchCategories } from '@services/categories';
+import { AxiosError } from 'axios';
 
 export default function CategoriesController() {
   const initialCategories = Route.useLoaderData();
 
   const [searchValue, setSearchValue] = useState<string>('');
+  const [errorMessage, setErrorMessage] = useState<string>('');
   const [categories, setCategories] =
     useState<CategoryObject[]>(initialCategories);
   const [filteredCategories, setFilteredCategories] = useState<
@@ -14,14 +17,25 @@ export default function CategoriesController() {
   >([]);
 
   const handleAddCategory = useCallback(
-    (name: string) => {
-      setCategories((prev) => [
-        ...prev,
-        { id: Date.now().toString(), name: name.trim() },
-      ]);
+    async (name: string) => {
+      if (!name) return;
       setSearchValue('');
+      setErrorMessage('');
+      setCategories((prev) => [...prev, { id: '', name }]);
+      try {
+        await createCategory({ name: name.trim() });
+        const updatedCategories = await fetchCategories();
+        setCategories(updatedCategories);
+        setFilteredCategories(updatedCategories);
+      } catch (error) {
+        if (error instanceof AxiosError) {
+          setErrorMessage(
+            error.response?.data?.error ?? 'Erro ao criar categoria',
+          );
+        }
+      }
     },
-    [setCategories],
+    [setCategories, setFilteredCategories, setErrorMessage, setSearchValue],
   );
 
   const handleChangeSearch = useCallback(
@@ -68,6 +82,7 @@ export default function CategoriesController() {
     <Categories
       categories={filteredCategories}
       searchValue={searchValue}
+      errorMessage={errorMessage}
       handleChangeSearch={handleChangeSearch}
       handleAddCategory={handleAddCategory}
       handleRemoveCategory={handleRemoveCategory}
