@@ -1,9 +1,6 @@
 import { createFileRoute } from '@tanstack/react-router';
+import CategoriesController from './controller/categories.controller';
 
 export const Route = createFileRoute('/_with-sidebar-layout/categories/')({
-  component: RouteComponent,
+  component: CategoriesController,
 });
-
-function RouteComponent() {
-  return <div>Hello /_with-sidebar-layout/categories/!</div>;
-}
