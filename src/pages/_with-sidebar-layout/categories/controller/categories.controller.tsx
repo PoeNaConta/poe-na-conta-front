@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { CategoryObject } from '../types';
 import Categories from '../view/categories.view';
 // import { Route } from '..';
@@ -6,10 +6,16 @@ import Categories from '../view/categories.view';
 export default function CategoriesController() {
   const [searchValue, setSearchValue] = useState<string>('');
   const [categories, setCategories] = useState<CategoryObject[]>([]);
+  const [filteredCategories, setFilteredCategories] = useState<
+    CategoryObject[]
+  >([]);
 
   const handleAddCategory = useCallback(
     (name: string) => {
-      setCategories((prev) => [...prev, { id: Date.now().toString(), name }]);
+      setCategories((prev) => [
+        ...prev,
+        { id: Date.now().toString(), name: name.trim() },
+      ]);
       setSearchValue('');
     },
     [setCategories],
@@ -43,9 +49,21 @@ export default function CategoriesController() {
     [setCategories],
   );
 
+  useEffect(() => {
+    if (searchValue) {
+      setFilteredCategories(
+        categories.filter((category) =>
+          category.name.toLowerCase().includes(searchValue.toLowerCase()),
+        ),
+      );
+    } else {
+      setFilteredCategories(categories);
+    }
+  }, [searchValue, categories]);
+
   return (
     <Categories
-      categories={categories}
+      categories={filteredCategories}
       searchValue={searchValue}
       handleChangeSearch={handleChangeSearch}
       handleAddCategory={handleAddCategory}
