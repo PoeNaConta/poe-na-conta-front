@@ -8,6 +8,11 @@
   width: 100%;
 }
 
+/* Full Height */
+.lds--stack--full-height {
+  height: 100%;
+}
+
 /* Wrapping */
 .lds--stack.lds--stack--wrap {
   flex-wrap: wrap;

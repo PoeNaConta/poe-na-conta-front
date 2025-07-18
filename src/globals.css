@@ -40,10 +40,18 @@
   --lds-spacing-xl: 24px;
   --lds-spacing-xxl: 32px;
   --lds-spacing-xxxl: 50px;
+  --lds-spacing-none: 0;
 
   --lds-text-color-primary: var(--lds-color-brand);
   --lds-text-color-default: var(--lds-color-dark);
   --lds-text-color-secondary: var(--lds-color-dark-light);
   --lds-text-color-tertiary: var(--lds-color-gray);
   --lds-text-color-onbrand: var(--lds-color-white);
+}
+
+body,
+html,
+#root {
+  height: 100%;
+  width: 100%;
 }

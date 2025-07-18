@@ -15,11 +15,12 @@ export default function VerifyEmail({ handleGoToHome }: VerifyEmailProps) {
           </Text>
 
           <Text secondary weight="semibold" justify>
-            Acesse o link de verificação enviado para o e-mail informado.
+            Acesse o link de verificação enviado para o e-mail informado. Em
+            seguida, retorne à tela de login para entrar em sua nova conta!
           </Text>
 
           <Button primary onClick={handleGoToHome}>
-            Ir para o início
+            Ir para o login
           </Button>
         </Stack>
       </Card>

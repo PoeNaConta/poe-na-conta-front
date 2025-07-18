@@ -9,7 +9,7 @@ export default defineConfig({
   plugins: [
     TanStackRouterVite({
       routesDirectory: './src/pages',
-      routeToken: 'page',
+      routeToken: 'layout',
       routeFileIgnorePattern: '.*(components|view|controller|types|hooks).*',
       semicolons: true,
     }),

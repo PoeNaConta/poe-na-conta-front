@@ -12,20 +12,40 @@ export default function Stack({
   as: element = 'div',
   children,
   fullWidth,
+  fullHeight,
+  ...rest
 }: StackProps) {
   const base = 'lds--stack';
 
   const getWrapModifier = () => {
-    return wrap === true ? 'wrap' : wrap;
+    return wrap === true ? `${base}--wrap` : `${base}--${wrap}`;
   };
 
   const getFullWidthModifier = () => {
     return fullWidth ? `${base}--full-width` : '';
   };
 
+  const getFullHeightModifier = () => {
+    return fullHeight ? `${base}--full-height` : '';
+  };
+
+  const getPaddingStyle = () => {
+    const paddingProps = rest as Record<string, string>;
+    const paddingsStyle: Record<string, string> = {};
+    for (const padding in paddingProps) {
+      if (padding)
+        paddingsStyle[padding] = `var(--lds-spacing-${paddingProps[padding]})`;
+    }
+    return paddingsStyle;
+  };
+
   const className = removeSpaces(
-    `${base} ${base}--${getWrapModifier()} ${getFullWidthModifier()} ${base}--space-${space} ${base}--direction--${direction} ${base}--align-${align} ${base}--justify-${justify}`,
+    `${base} ${getWrapModifier()} ${getFullHeightModifier()} ${getFullWidthModifier()} ${base}--space-${space} ${base}--direction--${direction} ${base}--align-${align} ${base}--justify-${justify}`,
   );
 
-  return createElement(element, { className }, children);
+  return createElement(
+    element,
+    { className, style: getPaddingStyle() },
+    children,
+  );
 }

@@ -11,16 +11,18 @@
 // Import Routes
 
 import { Route as rootRoute } from './pages/__root';
-import { Route as IndexImport } from './pages/index';
+import { Route as WithSidebarLayoutLayoutImport } from './pages/_with-sidebar-layout/layout';
 import { Route as VerifyEmailIndexImport } from './pages/verify-email/index';
 import { Route as LoginIndexImport } from './pages/login/index';
-import { Route as HomeIndexImport } from './pages/home/index';
+import { Route as WithSidebarLayoutTransactionsIndexImport } from './pages/_with-sidebar-layout/transactions/index';
+import { Route as WithSidebarLayoutProfileIndexImport } from './pages/_with-sidebar-layout/profile/index';
+import { Route as WithSidebarLayoutCategoriesIndexImport } from './pages/_with-sidebar-layout/categories/index';
+import { Route as WithSidebarLayouthomeIndexImport } from './pages/_with-sidebar-layout/(home)/index';
 
 // Create/Update Routes
 
-const IndexRoute = IndexImport.update({
-  id: '/',
-  path: '/',
+const WithSidebarLayoutLayoutRoute = WithSidebarLayoutLayoutImport.update({
+  id: '/_with-sidebar-layout',
   getParentRoute: () => rootRoute,
 } as any);
 
@@ -36,28 +38,44 @@ const LoginIndexRoute = LoginIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any);
 
-const HomeIndexRoute = HomeIndexImport.update({
-  id: '/home/',
-  path: '/home/',
-  getParentRoute: () => rootRoute,
-} as any);
+const WithSidebarLayoutTransactionsIndexRoute =
+  WithSidebarLayoutTransactionsIndexImport.update({
+    id: '/transactions/',
+    path: '/transactions/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any);
+
+const WithSidebarLayoutProfileIndexRoute =
+  WithSidebarLayoutProfileIndexImport.update({
+    id: '/profile/',
+    path: '/profile/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any);
+
+const WithSidebarLayoutCategoriesIndexRoute =
+  WithSidebarLayoutCategoriesIndexImport.update({
+    id: '/categories/',
+    path: '/categories/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any);
+
+const WithSidebarLayouthomeIndexRoute = WithSidebarLayouthomeIndexImport.update(
+  {
+    id: '/(home)/',
+    path: '/',
+    getParentRoute: () => WithSidebarLayoutLayoutRoute,
+  } as any,
+);
 
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/': {
-      id: '/';
-      path: '/';
-      fullPath: '/';
-      preLoaderRoute: typeof IndexImport;
-      parentRoute: typeof rootRoute;
-    };
-    '/home/': {
-      id: '/home/';
-      path: '/home';
-      fullPath: '/home';
-      preLoaderRoute: typeof HomeIndexImport;
+    '/_with-sidebar-layout': {
+      id: '/_with-sidebar-layout';
+      path: '';
+      fullPath: '';
+      preLoaderRoute: typeof WithSidebarLayoutLayoutImport;
       parentRoute: typeof rootRoute;
     };
     '/login/': {
@@ -74,52 +92,129 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof VerifyEmailIndexImport;
       parentRoute: typeof rootRoute;
     };
+    '/_with-sidebar-layout/(home)/': {
+      id: '/_with-sidebar-layout/(home)/';
+      path: '/';
+      fullPath: '/';
+      preLoaderRoute: typeof WithSidebarLayouthomeIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
+    '/_with-sidebar-layout/categories/': {
+      id: '/_with-sidebar-layout/categories/';
+      path: '/categories';
+      fullPath: '/categories';
+      preLoaderRoute: typeof WithSidebarLayoutCategoriesIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
+    '/_with-sidebar-layout/profile/': {
+      id: '/_with-sidebar-layout/profile/';
+      path: '/profile';
+      fullPath: '/profile';
+      preLoaderRoute: typeof WithSidebarLayoutProfileIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
+    '/_with-sidebar-layout/transactions/': {
+      id: '/_with-sidebar-layout/transactions/';
+      path: '/transactions';
+      fullPath: '/transactions';
+      preLoaderRoute: typeof WithSidebarLayoutTransactionsIndexImport;
+      parentRoute: typeof WithSidebarLayoutLayoutImport;
+    };
   }
 }
 
 // Create and export the route tree
 
+interface WithSidebarLayoutLayoutRouteChildren {
+  WithSidebarLayouthomeIndexRoute: typeof WithSidebarLayouthomeIndexRoute;
+  WithSidebarLayoutCategoriesIndexRoute: typeof WithSidebarLayoutCategoriesIndexRoute;
+  WithSidebarLayoutProfileIndexRoute: typeof WithSidebarLayoutProfileIndexRoute;
+  WithSidebarLayoutTransactionsIndexRoute: typeof WithSidebarLayoutTransactionsIndexRoute;
+}
+
+const WithSidebarLayoutLayoutRouteChildren: WithSidebarLayoutLayoutRouteChildren =
+  {
+    WithSidebarLayouthomeIndexRoute: WithSidebarLayouthomeIndexRoute,
+    WithSidebarLayoutCategoriesIndexRoute:
+      WithSidebarLayoutCategoriesIndexRoute,
+    WithSidebarLayoutProfileIndexRoute: WithSidebarLayoutProfileIndexRoute,
+    WithSidebarLayoutTransactionsIndexRoute:
+      WithSidebarLayoutTransactionsIndexRoute,
+  };
+
+const WithSidebarLayoutLayoutRouteWithChildren =
+  WithSidebarLayoutLayoutRoute._addFileChildren(
+    WithSidebarLayoutLayoutRouteChildren,
+  );
+
 export interface FileRoutesByFullPath {
-  '/': typeof IndexRoute;
-  '/home': typeof HomeIndexRoute;
+  '': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login': typeof LoginIndexRoute;
   '/verify-email': typeof VerifyEmailIndexRoute;
+  '/': typeof WithSidebarLayouthomeIndexRoute;
+  '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
+  '/profile': typeof WithSidebarLayoutProfileIndexRoute;
+  '/transactions': typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 export interface FileRoutesByTo {
-  '/': typeof IndexRoute;
-  '/home': typeof HomeIndexRoute;
   '/login': typeof LoginIndexRoute;
   '/verify-email': typeof VerifyEmailIndexRoute;
+  '/': typeof WithSidebarLayouthomeIndexRoute;
+  '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
+  '/profile': typeof WithSidebarLayoutProfileIndexRoute;
+  '/transactions': typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute;
-  '/': typeof IndexRoute;
-  '/home/': typeof HomeIndexRoute;
+  '/_with-sidebar-layout': typeof WithSidebarLayoutLayoutRouteWithChildren;
   '/login/': typeof LoginIndexRoute;
   '/verify-email/': typeof VerifyEmailIndexRoute;
+  '/_with-sidebar-layout/(home)/': typeof WithSidebarLayouthomeIndexRoute;
+  '/_with-sidebar-layout/categories/': typeof WithSidebarLayoutCategoriesIndexRoute;
+  '/_with-sidebar-layout/profile/': typeof WithSidebarLayoutProfileIndexRoute;
+  '/_with-sidebar-layout/transactions/': typeof WithSidebarLayoutTransactionsIndexRoute;
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath;
-  fullPaths: '/' | '/home' | '/login' | '/verify-email';
+  fullPaths:
+    | ''
+    | '/login'
+    | '/verify-email'
+    | '/'
+    | '/categories'
+    | '/profile'
+    | '/transactions';
   fileRoutesByTo: FileRoutesByTo;
-  to: '/' | '/home' | '/login' | '/verify-email';
-  id: '__root__' | '/' | '/home/' | '/login/' | '/verify-email/';
+  to:
+    | '/login'
+    | '/verify-email'
+    | '/'
+    | '/categories'
+    | '/profile'
+    | '/transactions';
+  id:
+    | '__root__'
+    | '/_with-sidebar-layout'
+    | '/login/'
+    | '/verify-email/'
+    | '/_with-sidebar-layout/(home)/'
+    | '/_with-sidebar-layout/categories/'
+    | '/_with-sidebar-layout/profile/'
+    | '/_with-sidebar-layout/transactions/';
   fileRoutesById: FileRoutesById;
 }
 
 export interface RootRouteChildren {
-  IndexRoute: typeof IndexRoute;
-  HomeIndexRoute: typeof HomeIndexRoute;
+  WithSidebarLayoutLayoutRoute: typeof WithSidebarLayoutLayoutRouteWithChildren;
   LoginIndexRoute: typeof LoginIndexRoute;
   VerifyEmailIndexRoute: typeof VerifyEmailIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
-  IndexRoute: IndexRoute,
-  HomeIndexRoute: HomeIndexRoute,
+  WithSidebarLayoutLayoutRoute: WithSidebarLayoutLayoutRouteWithChildren,
   LoginIndexRoute: LoginIndexRoute,
   VerifyEmailIndexRoute: VerifyEmailIndexRoute,
 };
@@ -134,23 +229,41 @@ export const routeTree = rootRoute
     "__root__": {
       "filePath": "__root.tsx",
       "children": [
-        "/",
-        "/home/",
+        "/_with-sidebar-layout",
         "/login/",
         "/verify-email/"
       ]
     },
-    "/": {
-      "filePath": "index.tsx"
-    },
-    "/home/": {
-      "filePath": "home/index.tsx"
+    "/_with-sidebar-layout": {
+      "filePath": "_with-sidebar-layout/layout.tsx",
+      "children": [
+        "/_with-sidebar-layout/(home)/",
+        "/_with-sidebar-layout/categories/",
+        "/_with-sidebar-layout/profile/",
+        "/_with-sidebar-layout/transactions/"
+      ]
     },
     "/login/": {
       "filePath": "login/index.tsx"
     },
     "/verify-email/": {
       "filePath": "verify-email/index.tsx"
+    },
+    "/_with-sidebar-layout/(home)/": {
+      "filePath": "_with-sidebar-layout/(home)/index.tsx",
+      "parent": "/_with-sidebar-layout"
+    },
+    "/_with-sidebar-layout/categories/": {
+      "filePath": "_with-sidebar-layout/categories/index.tsx",
+      "parent": "/_with-sidebar-layout"
+    },
+    "/_with-sidebar-layout/profile/": {
+      "filePath": "_with-sidebar-layout/profile/index.tsx",
+      "parent": "/_with-sidebar-layout"
+    },
+    "/_with-sidebar-layout/transactions/": {
+      "filePath": "_with-sidebar-layout/transactions/index.tsx",
+      "parent": "/_with-sidebar-layout"
     }
   }
 }

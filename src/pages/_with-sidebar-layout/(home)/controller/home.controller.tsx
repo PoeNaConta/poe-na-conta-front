@@ -1,4 +1,4 @@
-import Home from '@pages/home/view/home.view';
+import Home from '../view/home.view';
 
 export default function HomeController() {
   return <Home />;
