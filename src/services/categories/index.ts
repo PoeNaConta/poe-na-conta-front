@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { SimpleCategoryObject } from './types';
 
 export async function fetchCategories() {
   const result = await axios.get(
@@ -24,4 +25,12 @@ export async function removeCategory(id: string) {
     headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` },
     data: { id },
   });
+}
+
+export async function renameCategory(updatedCategory: SimpleCategoryObject) {
+  await axios.patch(
+    `${import.meta.env.VITE_BACKEND_ROUTE}/update-category`,
+    updatedCategory,
+    { headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` } },
+  );
 }
