@@ -8,16 +8,29 @@ export default function CenterLayout({
   subtitle,
   width,
   height,
+  justify = 'center',
   children,
 }: CenterLayoutProps) {
   const baseClassName = 'lds--center-layout';
 
   return (
     <div className={baseClassName}>
-      <Stack space="xxl" fullWidth align="center" justify="center">
+      <Stack
+        space="xxl"
+        fullWidth
+        align="center"
+        justify={justify}
+        paddingBlock="xxxl"
+      >
         {Boolean(title) && (
           <Stack fullWidth align="center" space="none">
-            <Text primary as="h1" weight="bold" size="lg">
+            <Text
+              primary={Boolean(subtitle)}
+              secondary={!subtitle}
+              as="h1"
+              weight="bold"
+              size="lg"
+            >
               {title}
             </Text>
             {Boolean(subtitle) && (

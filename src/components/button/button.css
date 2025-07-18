@@ -5,9 +5,10 @@
   border-radius: var(--lds-radius);
   box-sizing: border-box;
 
-  padding: 12px;
+  padding: calc(var(--lds-spacing-md) - 2px);
 
   cursor: pointer;
+  white-space: nowrap;
 }
 
 .lds--button:disabled {

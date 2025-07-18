@@ -3,7 +3,6 @@
   width: 100%;
 
   display: flex;
-  align-items: center;
   justify-content: center;
 
   background-color: var(--lds-color-white);
@@ -20,6 +19,7 @@
 
 @media (max-width: 768px) {
   .lds--center-layout {
+    align-items: center;
     padding-block: var(--lds-spacing-xxl);
   }
 

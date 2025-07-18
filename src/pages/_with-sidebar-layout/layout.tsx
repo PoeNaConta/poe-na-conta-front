@@ -1,4 +1,3 @@
-import CenterLayout from '@components/center-layout';
 import Sidebar from '@components/sidebar';
 import Stack from '@components/stack';
 import { createFileRoute, Outlet, redirect } from '@tanstack/react-router';
@@ -15,9 +14,7 @@ function RouteComponent() {
     <Stack direction="row" space="none" align="stretch" fullHeight>
       <Sidebar />
 
-      <CenterLayout>
-        <Outlet />
-      </CenterLayout>
+      <Outlet />
     </Stack>
   );
 }

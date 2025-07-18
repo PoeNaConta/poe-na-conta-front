@@ -5,4 +5,5 @@ export interface CenterLayoutProps extends PropsWithChildren {
   subtitle?: string;
   width?: number;
   height?: number;
+  justify?: 'start' | 'center' | 'end' | 'between' | 'around' | 'evenly';
 }

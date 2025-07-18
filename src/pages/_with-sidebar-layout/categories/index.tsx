@@ -1,9 +1,11 @@
 import { createFileRoute } from '@tanstack/react-router';
+import CategoriesController from './controller/categories.controller';
+import { fetchCategories } from '@services/categories';
 
 export const Route = createFileRoute('/_with-sidebar-layout/categories/')({
-  component: RouteComponent,
+  loader: async () => {
+    const categories = await fetchCategories();
+    return categories;
+  },
+  component: CategoriesController,
 });
-
-function RouteComponent() {
-  return <div>Hello /_with-sidebar-layout/categories/!</div>;
-}
