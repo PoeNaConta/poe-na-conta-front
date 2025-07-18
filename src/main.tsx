@@ -6,6 +6,7 @@ import './reset.css';
 
 // Import the generated route tree
 import { routeTree } from './routeTree.gen';
+import axios from 'axios';
 
 // Create a new router instance
 const router = createRouter({ routeTree });
@@ -16,6 +17,19 @@ declare module '@tanstack/react-router' {
     router: typeof router;
   }
 }
+
+axios.interceptors.response.use(
+  (response) => {
+    return response;
+  },
+  (error) => {
+    if (error.response?.status === 401) {
+      sessionStorage.removeItem('jwt');
+      window.location.href = '/login';
+    }
+    return Promise.reject(error);
+  },
+);
 
 // Render the app
 const rootElement = document.getElementById('root')!;
