@@ -5,6 +5,8 @@ export interface TextProps extends PropsWithChildren {
   size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl' | 'hero';
   weight?: 'light' | 'regular' | 'medium' | 'semibold' | 'bold';
   htmlFor?: string;
+  success?: boolean;
+  error?: boolean;
   primary?: boolean;
   secondary?: boolean;
   tertiary?: boolean;

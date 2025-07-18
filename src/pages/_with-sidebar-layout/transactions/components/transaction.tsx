@@ -9,6 +9,10 @@ export default function Transaction({
   createdat,
   description,
 }: Partial<TransactionType>) {
+  const formattedBalance = `R$ ${Number(balance).toFixed(2)}`
+    .replace('.', ',')
+    .replace(/(.*)([-])(.*)/, '$2 $1$3');
+
   return (
     <Stack direction="row" fullWidth>
       <Stack direction="row" align="center" justify="between" fullWidth>
@@ -24,7 +28,14 @@ export default function Transaction({
           </Text>
         </Stack>
 
-        <Text>R$ {Number(balance).toFixed(2).replace('.', ',')}</Text>
+        <Text
+          success={Number(balance) >= 0}
+          error={Number(balance) < 0}
+          size="sm"
+          weight="bold"
+        >
+          {formattedBalance}
+        </Text>
       </Stack>
 
       <Stack space="md">

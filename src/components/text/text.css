@@ -38,6 +38,14 @@
   color: var(--lds-text-color-default);
 }
 
+.lds--text--success {
+  color: var(--lds-text-color-success);
+}
+
+.lds--text--error {
+  color: var(--lds-text-color-error);
+}
+
 .lds--text--primary {
   color: var(--lds-text-color-primary);
 }
