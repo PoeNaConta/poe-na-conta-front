@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback, useMemo, useState } from 'react';
 import { SimpleCategoryObject } from '@services/categories/types';
 import {
   createCategory,
@@ -13,9 +13,14 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
   const [errorMessage, setErrorMessage] = useState<string>('');
   const [categories, setCategories] =
     useState<SimpleCategoryObject[]>(initialCategories);
-  const [filteredCategories, setFilteredCategories] = useState<
-    SimpleCategoryObject[]
-  >([]);
+
+  const filteredCategories = useMemo(() => {
+    if (!searchValue) return categories;
+
+    return categories.filter((category) =>
+      category.name.toLowerCase().includes(searchValue.toLowerCase()),
+    );
+  }, [searchValue, categories]);
 
   const clearError = useCallback(() => {
     setErrorMessage('');
@@ -24,7 +29,6 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
   const addCategory = useCallback((name: string) => {
     setSearchValue('');
     setCategories((prev) => [...prev, { id: '', name }]);
-    setFilteredCategories((prev) => [...prev, { id: '', name }]);
   }, []);
 
   const handleAddCategory = useCallback(
@@ -40,7 +44,6 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
         const updatedCategories = await fetchCategories();
 
         setCategories(updatedCategories);
-        setFilteredCategories(updatedCategories);
       } catch (error) {
         if (error instanceof AxiosError) {
           setErrorMessage(
@@ -49,17 +52,14 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
         }
       }
     },
-    [setCategories, setFilteredCategories, setErrorMessage, setSearchValue],
+    [setCategories, setErrorMessage, setSearchValue],
   );
 
   const filterOutCategories = useCallback(
     (id: string) => {
       setCategories((prev) => prev.filter((category) => category.id !== id));
-      setFilteredCategories((prev) =>
-        prev.filter((category) => category.id !== id),
-      );
     },
-    [setCategories, setFilteredCategories],
+    [setCategories],
   );
 
   const handleRemoveCategory = useCallback(
@@ -87,13 +87,8 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
           category.id === id ? { ...category, name } : category,
         ),
       );
-      setFilteredCategories((prev) =>
-        prev.map((category) =>
-          category.id === id ? { ...category, name } : category,
-        ),
-      );
     },
-    [setCategories, setFilteredCategories],
+    [setCategories],
   );
 
   const handleEditCategory = useCallback(
@@ -124,18 +119,6 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
     [setSearchValue],
   );
 
-  const filterCategories = useCallback(() => {
-    if (searchValue) {
-      setFilteredCategories(
-        categories.filter((category) =>
-          category.name.toLowerCase().includes(searchValue.toLowerCase()),
-        ),
-      );
-    } else {
-      setFilteredCategories(categories);
-    }
-  }, [searchValue, categories, setFilteredCategories]);
-
   return {
     categories: filteredCategories,
     searchValue,
@@ -144,6 +127,5 @@ export function useCategoryHandlers(initialCategories: SimpleCategoryObject[]) {
     handleAddCategory,
     handleRemoveCategory,
     handleEditCategory,
-    filterCategories,
   };
 }
