@@ -1,8 +1,6 @@
-import Card from '@components/card';
 import IconButton from '@components/icon-button';
 import IconLink from '@components/icon-link';
 import Modal from '@components/modal';
-import Text from '@components/text';
 import Stack from '@components/stack';
 import {
   PlusIcon,
@@ -13,6 +11,7 @@ import {
   LogOutIcon,
 } from 'lucide-react';
 import { useCallback, useState } from 'react';
+import AddTransactionCard from '@components/add-transaction-card';
 
 export default function Sidebar() {
   const [isAddTransactionOpen, setIsAddTransactionOpen] = useState(false);
@@ -24,11 +23,7 @@ export default function Sidebar() {
   return (
     <>
       <Modal isOpen={isAddTransactionOpen} onClose={handleToggleAddTransaction}>
-        <Card>
-          <Text primary weight="bold" as="h3">
-            Adicionar Transação
-          </Text>
-        </Card>
+        <AddTransactionCard handleCancel={handleToggleAddTransaction} />
       </Modal>
 
       <Stack justify="between" paddingInline="md" paddingBlock="lg">

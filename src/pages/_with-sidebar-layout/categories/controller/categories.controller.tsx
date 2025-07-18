@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import Categories from '../view/categories.view';
 import { Route } from '..';
 import { useCategoryHandlers } from '../hooks/use-category-handlers';
@@ -14,12 +13,7 @@ export default function CategoriesController() {
     handleChangeSearch,
     handleRemoveCategory,
     handleEditCategory,
-    filterCategories,
   } = useCategoryHandlers(initialCategories);
-
-  useEffect(() => {
-    filterCategories();
-  }, [filterCategories]);
 
   return (
     <Categories
