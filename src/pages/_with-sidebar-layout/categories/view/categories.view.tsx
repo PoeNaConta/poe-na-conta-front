@@ -35,7 +35,7 @@ export default function Categories({
         <Stack>
           {categories.map((category) => (
             <CategoryRow
-              key={category.id}
+              key={category.name}
               name={category.name}
               handleRemoveCategory={() => handleRemoveCategory(category.id)}
               handleEditCategory={() => handleEditCategory(category.id)}
