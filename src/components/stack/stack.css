@@ -42,7 +42,7 @@
 }
 
 .lds--stack.lds--stack--direction--column {
-  flex-direction: column;
+  flex-direction: column default;
 }
 
 .lds--stack.lds--stack--direction--column-reverse {
