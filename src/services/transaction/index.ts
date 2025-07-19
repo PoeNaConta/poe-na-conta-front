@@ -21,3 +21,27 @@ export async function fetchTransactions() {
 
   return response.data;
 }
+
+export async function removeTransaction(id: number) {
+  const response = await axios.delete(
+    `${import.meta.env.VITE_BACKEND_ROUTE}/transactions/delete`,
+    {
+      data: { id },
+      headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` },
+    },
+  );
+
+  return response.data;
+}
+
+export async function updateTransaction(transaction: Transaction) {
+  const response = await axios.patch(
+    `${import.meta.env.VITE_BACKEND_ROUTE}/transactions/update`,
+    transaction,
+    {
+      headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` },
+    },
+  );
+
+  return response.data;
+}

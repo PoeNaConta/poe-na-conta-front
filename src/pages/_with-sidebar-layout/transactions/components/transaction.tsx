@@ -8,7 +8,12 @@ export default function Transaction({
   title,
   createdat,
   description,
-}: Partial<TransactionType>) {
+  onRemove: handleRemove,
+  onEdit: handleEdit,
+}: Partial<TransactionType> & {
+  onRemove: () => void;
+  onEdit: () => void;
+}) {
   const formattedBalance = `R$ ${Number(balance).toFixed(2)}`
     .replace('.', ',')
     .replace(/(.*)([-])(.*)/, '$2 $1$3');
@@ -46,6 +51,7 @@ export default function Transaction({
             color: 'var(--lds-text-color-secondary)',
           }}
           strokeWidth={2.25}
+          onClick={handleEdit}
         />
         <TrashIcon
           size={16}
@@ -54,6 +60,7 @@ export default function Transaction({
             color: 'var(--lds-text-color-secondary)',
           }}
           strokeWidth={2.25}
+          onClick={handleRemove}
         />
       </Stack>
     </Stack>

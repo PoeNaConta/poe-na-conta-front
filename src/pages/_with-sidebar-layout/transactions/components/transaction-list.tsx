@@ -7,6 +7,8 @@ import { TransactionListProps } from '../types';
 export default function TransactionList({
   title,
   transactions,
+  onRemoveTransaction: handleRemoveTransaction,
+  onEditTransaction: handleEditTransaction,
 }: TransactionListProps) {
   return (
     <Card fullWidth>
@@ -16,7 +18,12 @@ export default function TransactionList({
 
       <Stack space="xl" fullWidth>
         {transactions.map((transaction) => (
-          <Transaction key={transaction.id} {...transaction} />
+          <Transaction
+            key={transaction.id}
+            {...transaction}
+            onRemove={() => handleRemoveTransaction(transaction.id!)}
+            onEdit={() => handleEditTransaction(transaction.id!)}
+          />
         ))}
       </Stack>
     </Card>
