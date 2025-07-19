@@ -24,6 +24,7 @@ export default function Login({
           justify="evenly"
           align="stretch"
           space="xxl"
+          fullHeight
         >
           <RegisterForm {...registerFormProps} />
 
