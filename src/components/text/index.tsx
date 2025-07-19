@@ -10,6 +10,8 @@ export default function Text({
   weight = 'regular',
   center,
   htmlFor,
+  success,
+  error,
   primary,
   secondary,
   tertiary,
@@ -19,6 +21,8 @@ export default function Text({
   const base = 'lds--text';
 
   const getColorModifier = () => {
+    if (success) return `${base}--success`;
+    if (error) return `${base}--error`;
     if (primary) return `${base}--primary`;
     if (secondary) return `${base}--secondary`;
     if (tertiary) return `${base}--tertiary`;

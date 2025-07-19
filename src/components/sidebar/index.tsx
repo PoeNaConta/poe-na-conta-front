@@ -9,12 +9,16 @@ import {
   LayersIcon,
   UserIcon,
   LogOutIcon,
+  SettingsIcon,
 } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import AddTransactionCard from '@components/add-transaction-card';
+import './sidebar.css';
 
 export default function Sidebar() {
   const [isAddTransactionOpen, setIsAddTransactionOpen] = useState(false);
+
+  const baseClass = 'lds--sidebar';
 
   const handleToggleAddTransaction = useCallback(() => {
     setIsAddTransactionOpen((previousIsOpen) => !previousIsOpen);
@@ -26,8 +30,14 @@ export default function Sidebar() {
         <AddTransactionCard handleCancel={handleToggleAddTransaction} />
       </Modal>
 
-      <Stack justify="between" paddingInline="md" paddingBlock="lg">
-        <Stack space="sm">
+      <Stack
+        as="aside"
+        justify="between"
+        paddingInline="md"
+        paddingBlock="lg"
+        className={baseClass}
+      >
+        <Stack space="sm" className={`${baseClass}__main-items`}>
           <IconButton
             primary
             icon={<PlusIcon />}
@@ -49,12 +59,18 @@ export default function Sidebar() {
           </IconLink>
         </Stack>
 
-        <Stack space="md">
+        <Stack space="md" className={`${baseClass}__secondary-items`}>
           <IconLink icon={<UserIcon />} to="/profile">
             Perfil
           </IconLink>
 
           <IconButton icon={<LogOutIcon />}>Sair</IconButton>
+        </Stack>
+
+        <Stack space="md" className={`${baseClass}__tertiary-items`}>
+          <IconLink icon={<SettingsIcon />} to="/profile">
+            Config
+          </IconLink>
         </Stack>
       </Stack>
     </>

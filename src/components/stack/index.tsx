@@ -13,6 +13,8 @@ export default function Stack({
   children,
   fullWidth,
   fullHeight,
+  style,
+  className: newClasses,
   ...rest
 }: StackProps) {
   const base = 'lds--stack';
@@ -40,12 +42,15 @@ export default function Stack({
   };
 
   const className = removeSpaces(
-    `${base} ${getWrapModifier()} ${getFullHeightModifier()} ${getFullWidthModifier()} ${base}--space-${space} ${base}--direction--${direction} ${base}--align-${align} ${base}--justify-${justify}`,
+    `${base} ${getWrapModifier()} ${getFullHeightModifier()} ${getFullWidthModifier()} ${base}--space-${space} ${base}--direction--${direction} ${base}--align-${align} ${base}--justify-${justify} ${newClasses ?? ''}`,
   );
 
   return createElement(
     element,
-    { className, style: getPaddingStyle() },
+    {
+      className,
+      style: { ...getPaddingStyle(), ...(style as Record<string, string>) },
+    },
     children,
   );
 }

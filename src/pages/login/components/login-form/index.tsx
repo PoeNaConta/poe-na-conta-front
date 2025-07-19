@@ -24,30 +24,39 @@ export default function LoginForm({
   );
 
   return (
-    <Stack as={FormWrapper} align="stretch" fullWidth>
+    <Stack as={FormWrapper} align="stretch" justify="between" fullWidth>
       <Text as="h3" weight="bold" center secondary>
         Faça login
       </Text>
 
-      <Input
-        label="Email"
-        name="email"
-        type="email"
-        value={userLoginBody.useremail}
-        placeholder="digite seu email"
-        onChange={(event) => handleChange('useremail', event.target.value)}
-      />
+      <Stack
+        align="stretch"
+        justify="start"
+        space="xl"
+        paddingTop="xxl"
+        paddingBottom="xl"
+        fullHeight
+      >
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          value={userLoginBody.useremail}
+          placeholder="digite seu email"
+          onChange={(event) => handleChange('useremail', event.target.value)}
+        />
 
-      <Input
-        label="Senha"
-        name="password"
-        type="password"
-        value={userLoginBody.passwordhash}
-        placeholder="informe sua senha"
-        onChange={(event) => handleChange('passwordhash', event.target.value)}
-      />
+        <Input
+          label="Senha"
+          name="password"
+          type="password"
+          value={userLoginBody.passwordhash}
+          placeholder="informe sua senha"
+          onChange={(event) => handleChange('passwordhash', event.target.value)}
+        />
 
-      {Boolean(errorMessage) && <Text>{errorMessage}</Text>}
+        {Boolean(errorMessage) && <Text>{errorMessage}</Text>}
+      </Stack>
 
       <ButtonLayout
         column

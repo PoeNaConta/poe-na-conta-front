@@ -11,7 +11,13 @@ export const Route = createFileRoute('/_with-sidebar-layout')({
 
 function RouteComponent() {
   return (
-    <Stack direction="row" space="none" align="stretch" fullHeight>
+    <Stack
+      direction="row"
+      space="none"
+      align="stretch"
+      wrap="mobile"
+      fullHeight
+    >
       <Sidebar />
 
       <Outlet />

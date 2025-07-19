@@ -24,45 +24,57 @@ export default function RegisterForm({
   );
 
   return (
-    <Stack as={FormWrapper} align="stretch" fullWidth>
+    <Stack as={FormWrapper} align="stretch" justify="between" fullWidth>
       <Text as="h3" weight="bold" center secondary>
         Registre-se
       </Text>
 
-      <Input
-        label="Nome"
-        placeholder="seu nome"
-        value={userRegisterBody.name}
-        onChange={(e) => handleChange('name', e.target.value)}
-      />
+      <Stack
+        align="stretch"
+        justify="start"
+        space="xl"
+        paddingTop="xxl"
+        paddingBottom="xl"
+        fullHeight
+      >
+        <Input
+          label="Nome"
+          placeholder="seu nome"
+          value={userRegisterBody.name}
+          onChange={(e) => handleChange('name', e.target.value)}
+        />
 
-      <Input
-        label="Email"
-        name="email"
-        type="email"
-        placeholder="digite seu email"
-        value={userRegisterBody.useremail}
-        onChange={(e) => handleChange('useremail', e.target.value)}
-      />
+        <Input
+          label="Email"
+          name="email"
+          type="email"
+          placeholder="digite seu email"
+          value={userRegisterBody.useremail}
+          onChange={(e) => handleChange('useremail', e.target.value)}
+        />
 
-      <Input
-        label="Senha"
-        name="password"
-        type="password"
-        placeholder="crie uma senha"
-        value={userRegisterBody.passwordhash}
-        onChange={(e) => handleChange('passwordhash', e.target.value)}
-      />
+        <Input
+          label="Senha"
+          name="password"
+          type="password"
+          placeholder="crie uma senha"
+          value={userRegisterBody.passwordhash}
+          onChange={(e) => handleChange('passwordhash', e.target.value)}
+        />
 
-      {Boolean(errorMessage) && <Text>{errorMessage}</Text>}
+        {Boolean(errorMessage) && <Text>{errorMessage}</Text>}
+      </Stack>
 
       <ButtonLayout
         column
         primaryButton={
-          <Button primary type="submit" disabled={isLoading}>
-            {isLoading ? 'Carregando...' : 'Submit'}
-          </Button>
+          <Stack align="stretch">
+            <Button primary type="submit" disabled={isLoading}>
+              {isLoading ? 'Carregando...' : 'Submit'}
+            </Button>
+          </Stack>
         }
+        secondaryButton={<Stack paddingBlock="sm" />}
       />
     </Stack>
   );
