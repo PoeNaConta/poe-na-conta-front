@@ -1,5 +1,6 @@
 import { SelectOption } from '@components/select/types';
 import { Transaction } from '@services/transaction/types';
+import { formatCurrency } from '@utils/format-currency';
 import { useCallback, useState } from 'react';
 
 export function useTransactionForm(
@@ -10,13 +11,9 @@ export function useTransactionForm(
 ) {
   const [isLoading, setIsLoading] = useState(false);
 
-  const formatBalance = useCallback((value: string) => {
-    return `R$ ${value.replace(/[^0-9.,-]/g, '')}`;
-  }, []);
-
   const [transactionData, setTransactionData] = useState({
     title: initialData?.title || '',
-    balance: initialData?.balance ? formatBalance(initialData?.balance) : '',
+    balance: initialData?.balance ? formatCurrency(initialData?.balance) : '',
     newCategory: '',
     description: initialData?.description || '',
   });
@@ -24,7 +21,7 @@ export function useTransactionForm(
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
 
-    const formattedValue = name === 'balance' ? formatBalance(value) : value;
+    const formattedValue = name === 'balance' ? formatCurrency(value) : value;
     setTransactionData((prevData) => ({
       ...prevData,
       [name]: formattedValue,

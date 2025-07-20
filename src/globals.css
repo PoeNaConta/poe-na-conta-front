@@ -15,6 +15,7 @@
   --lds-color-pure-white: #fff;
 
   --lds-color-success: #14ae5c;
+  --lds-color-warning: #e8b931;
   --lds-color-error: #ec221f;
 
   --lds-radius-none: 0px;
@@ -53,6 +54,7 @@
   --lds-text-color-tertiary: var(--lds-color-gray);
   --lds-text-color-onbrand: var(--lds-color-white);
   --lds-text-color-success: var(--lds-color-success);
+  --lds-text-color-warning: var(--lds-color-warning);
   --lds-text-color-error: var(--lds-color-error);
 }
 

@@ -2,7 +2,7 @@ import { useCallback, useMemo, useState } from 'react';
 import { Route } from '..';
 import Transactions from '../view/transactions.view';
 import { removeTransaction, updateTransaction } from '@services/transaction';
-import { fetchDebtsAndGains } from '../utils/fetch-debts-and-gains';
+import { fetchDebtsAndGains } from '@utils/fetch-debts-and-gains';
 import { Transaction } from '@services/transaction/types';
 
 export default function TransactionsController() {
