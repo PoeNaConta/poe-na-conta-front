@@ -92,3 +92,9 @@
     display: flex;
   }
 }
+
+@media print {
+  .lds--sidebar {
+    display: none;
+  }
+}

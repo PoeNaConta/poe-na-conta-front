@@ -55,3 +55,9 @@
 .lds--card.lds--card--padding--xxxl {
   padding: var(--lds-spacing-xxxl);
 }
+
+@media print {
+  .lds--card {
+    padding: var(--lds-spacing-md) !important;
+  }
+}

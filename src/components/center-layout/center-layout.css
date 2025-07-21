@@ -17,7 +17,7 @@
   min-width: 0;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .lds--center-layout {
     align-items: center;
     padding-block: var(--lds-spacing-xxl);
@@ -25,5 +25,16 @@
 
   .lds--center-layout--content {
     min-width: 90%;
+  }
+}
+
+@media print {
+  .lds--center-layout {
+    align-items: center;
+    padding: var(--lds-spacing-none);
+  }
+
+  .lds--center-layout--content {
+    min-width: 100%;
   }
 }

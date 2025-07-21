@@ -18,7 +18,7 @@
   flex-wrap: wrap;
 }
 
-@media (max-width: 768px) {
+@media screen and (max-width: 768px) {
   .lds--stack.lds--stack--mobile {
     flex-wrap: wrap;
   }

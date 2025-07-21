@@ -12,7 +12,7 @@ export interface BalanceLineChartProps {
 
 export interface ReportCardProps extends BalanceLineChartProps {
   biggestExpenses: Transaction[];
-  categoriesBalance: CategoryBalance[];
+  categoriesDebts: CategoryBalance[];
 }
 
 export interface BalanceCardsProps {

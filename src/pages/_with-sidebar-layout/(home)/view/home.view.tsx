@@ -9,7 +9,7 @@ export default function Home({
   totalBalance,
   gainsBalance,
   debtsBalance,
-  categoriesBalance,
+  categoriesDebts,
   balanceDataSet,
   biggestExpenses,
 }: HomeViewProps) {
@@ -27,7 +27,7 @@ export default function Home({
         </Text>
 
         <ReportCard
-          categoriesBalance={categoriesBalance}
+          categoriesDebts={categoriesDebts}
           balanceDataSet={balanceDataSet}
           biggestExpenses={biggestExpenses}
         />

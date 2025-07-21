@@ -56,12 +56,12 @@ export default function useLineChartDataSet({
 
   const balanceDataSet = useMemo(() => {
     const gainsMap = gainsSet.reduce<Record<string, number>>((acc, item) => {
-      acc[item.date] = item.balance;
+      acc[item.createdat] = item.balance;
       return acc;
     }, {});
 
     const debtsMap = debtsSet.reduce<Record<string, number>>((acc, item) => {
-      acc[item.date] = item.balance;
+      acc[item.createdat] = item.balance;
       return acc;
     }, {});
 
@@ -72,18 +72,20 @@ export default function useLineChartDataSet({
     let previousBalance = 0;
 
     return allDates.map((date) => {
-      const gains = gainsMap[date];
-      const debts = debtsMap[date];
-      const balance = previousBalance + (gains ?? 0) - (debts ?? 0);
+      const gains = gainsMap[date] ?? 0;
+      const debts = debtsMap[date] ?? 0;
+      const balance = previousBalance + gains - debts;
       previousBalance = balance;
       return {
-        date,
+        date: date.replace(/^(.*)-(.*)-(.*)$/, '$3/$2/$1'),
         balance,
         gains,
         debts,
       };
     });
   }, [gainsSet, debtsSet]);
+
+  console.log('Balance Data Set:', balanceDataSet);
 
   return { balanceDataSet, gainsSet, debtsSet };
 }
