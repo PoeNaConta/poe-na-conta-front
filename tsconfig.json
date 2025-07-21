@@ -29,6 +29,7 @@
     "declaration": true,
     "emitDeclarationOnly": false,
     "rootDirs": ["src", "test"],
+    "skipLibCheck": true,
     "incremental": true
   },
   "include": ["./**/*.ts", "./**/*.css", "./**/*.tsx"],

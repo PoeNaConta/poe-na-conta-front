@@ -6,11 +6,11 @@ describe('LoginForm', () => {
   it('should render LoginForm correctly', () => {
     const { container } = render(
       <LoginForm
-        isLoadingLogin={false}
+        isLoading={false}
         userLoginBody={{ useremail: '', passwordhash: '' }}
         errorMessage={''}
-        onSubmit={vi.fn()}
-        onChange={vi.fn()}
+        handleLogin={vi.fn()}
+        handleChange={vi.fn()}
       />,
     );
 
