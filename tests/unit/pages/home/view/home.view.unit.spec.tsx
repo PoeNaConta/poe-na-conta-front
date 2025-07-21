@@ -1,5 +1,5 @@
 import React from 'react';
-import Home from '@pages/home/view/home.view';
+import Home from '@pages/_with-sidebar-layout/(home)/controller/home.controller';
 
 import { render } from '@testing-library/react';
 

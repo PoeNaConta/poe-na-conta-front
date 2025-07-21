@@ -30,7 +30,7 @@ export function useTransactionForm(
 
   const handleSubmitWrapper = useCallback(
     async (
-      event: React.FormEvent,
+      _event: React.FormEvent,
       submitCallback: (transactionData: Transaction) => Promise<void>,
     ) => {
       const { title, balance, newCategory, description } = transactionData;
