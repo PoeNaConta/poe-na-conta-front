@@ -2,6 +2,7 @@ import { Transaction } from '@services/transaction/types';
 import { Route } from '..';
 import Home from '../view/home.view';
 import useLineChartDataSet from '../hooks/use-line-chart-data-set';
+import { CategoryBalance } from '@services/balance/types';
 
 export default function HomeController() {
   const {
@@ -10,7 +11,7 @@ export default function HomeController() {
     debtsBalance,
     debts,
     gains,
-    balanceCategories: categoriesBalance,
+    categoriesDebts,
   } = Route.useLoaderData();
 
   const { balanceDataSet } = useLineChartDataSet({ gains, debts });
@@ -20,7 +21,10 @@ export default function HomeController() {
       totalBalance={totalBalance}
       gainsBalance={gainsBalance}
       debtsBalance={debtsBalance}
-      categoriesBalance={categoriesBalance}
+      categoriesDebts={categoriesDebts.map((category: CategoryBalance) => ({
+        ...category,
+        balance: Math.abs(Number(category.debts)),
+      }))}
       balanceDataSet={balanceDataSet}
       biggestExpenses={debts.sort(
         (a: Transaction, b: Transaction) =>

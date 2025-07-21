@@ -64,3 +64,7 @@ html,
   height: 100%;
   width: 100%;
 }
+
+.recharts-wrapper svg {
+  overflow: inherit !important;
+}

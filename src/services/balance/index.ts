@@ -27,9 +27,9 @@ export async function fetchDebtsBalance() {
   return result.data;
 }
 
-export async function fetchBalanceCategories() {
+export async function fetchDebtCategories() {
   const result = await axios.get(
-    `${import.meta.env.VITE_BACKEND_ROUTE}/balanceCategories`,
+    `${import.meta.env.VITE_BACKEND_ROUTE}/CategoriesDebts`,
     { headers: { Authorization: `Bearer ${sessionStorage.getItem('jwt')}` } },
   );
 

@@ -33,8 +33,6 @@ export function useTransactionForm(
       event: React.FormEvent,
       submitCallback: (transactionData: Transaction) => Promise<void>,
     ) => {
-      event.preventDefault();
-
       const { title, balance, newCategory, description } = transactionData;
 
       if (selectedCategory?.value === 'add_category' && !newCategory) {
