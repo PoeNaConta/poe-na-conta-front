@@ -7,21 +7,28 @@ import {
   HomeIcon,
   DollarSignIcon,
   LayersIcon,
-  UserIcon,
+  // UserIcon,
   LogOutIcon,
-  SettingsIcon,
+  // SettingsIcon,
 } from 'lucide-react';
 import { useCallback, useState } from 'react';
 import AddTransactionCard from '@components/add-transaction-card';
 import './sidebar.css';
+import { useNavigate } from '@tanstack/react-router';
 
 export default function Sidebar() {
+  const redirect = useNavigate();
   const [isAddTransactionOpen, setIsAddTransactionOpen] = useState(false);
 
   const baseClass = 'lds--sidebar';
 
   const handleToggleAddTransaction = useCallback(() => {
     setIsAddTransactionOpen((previousIsOpen) => !previousIsOpen);
+  }, []);
+
+  const handleLogout = useCallback(() => {
+    sessionStorage.removeItem('jwt');
+    redirect({ to: '/login' });
   }, []);
 
   return (
@@ -60,17 +67,27 @@ export default function Sidebar() {
         </Stack>
 
         <Stack space="md" className={`${baseClass}__secondary-items`}>
+          {/*
           <IconLink icon={<UserIcon />} to="/profile">
             Perfil
           </IconLink>
+          */}
 
-          <IconButton icon={<LogOutIcon />}>Sair</IconButton>
+          <IconButton icon={<LogOutIcon />} onClick={handleLogout}>
+            Sair
+          </IconButton>
         </Stack>
 
         <Stack space="md" className={`${baseClass}__tertiary-items`}>
+          {/*
           <IconLink icon={<SettingsIcon />} to="/profile">
             Config
           </IconLink>
+          */}
+
+          <IconButton icon={<LogOutIcon />} onClick={handleLogout}>
+            Sair
+          </IconButton>
         </Stack>
       </Stack>
     </>
