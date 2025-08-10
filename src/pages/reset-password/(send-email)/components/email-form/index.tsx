@@ -19,7 +19,7 @@ export default function EmailForm({
       />
 
       <Button primary type="submit" disabled={!email || isLoading}>
-        {isLoading ? 'Confirmar' : 'Enviando e-mail...'}
+        {isLoading ? 'Enviando e-mail...' : 'Confirmar'}
       </Button>
     </>
   );

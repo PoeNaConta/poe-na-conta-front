@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export async function sendResetPasswordRequest(email: string) {
   const result = await axios.post(
-    `${import.meta.env.VITE_BACKEND_ROUTE}/users/update-password`,
+    `${import.meta.env.VITE_BACKEND_ROUTE}/users/forgot-pass`,
     { email },
   );
 
