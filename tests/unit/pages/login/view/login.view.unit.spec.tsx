@@ -26,6 +26,7 @@ describe('LoginView', () => {
           errorMessage: '',
           handleLogin: vi.fn(),
           handleChange: vi.fn(),
+          handleForgotPassword: vi.fn(),
         }}
       />,
     );

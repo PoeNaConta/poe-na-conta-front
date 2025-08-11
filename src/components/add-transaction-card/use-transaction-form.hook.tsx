@@ -1,5 +1,6 @@
 import { SelectOption } from '@components/select/types';
 import { Transaction } from '@services/transaction/types';
+import { useNavigate } from '@tanstack/react-router';
 import { formatCurrency } from '@utils/format-currency';
 import { useCallback, useState } from 'react';
 
@@ -10,6 +11,7 @@ export function useTransactionForm(
   handleClose: () => void,
 ) {
   const [isLoading, setIsLoading] = useState(false);
+  const redirect = useNavigate();
 
   const [transactionData, setTransactionData] = useState({
     title: initialData?.title || '',
@@ -30,9 +32,10 @@ export function useTransactionForm(
 
   const handleSubmitWrapper = useCallback(
     async (
-      _event: React.FormEvent,
+      event: React.FormEvent,
       submitCallback: (transactionData: Transaction) => Promise<void>,
     ) => {
+      event.preventDefault();
       const { title, balance, newCategory, description } = transactionData;
 
       if (selectedCategory?.value === 'add_category' && !newCategory) {
@@ -55,6 +58,8 @@ export function useTransactionForm(
         };
 
         await submitCallback(transaction);
+
+        redirect({ to: '.' });
 
         handleClose();
       } catch (error) {
