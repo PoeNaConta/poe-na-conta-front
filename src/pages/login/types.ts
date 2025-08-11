@@ -20,4 +20,5 @@ export interface LoginFormProps {
   errorMessage: string;
   handleLogin: (e: React.FormEvent<HTMLFormElement>) => void;
   handleChange: (key: keyof UserLoginBody, value: string) => void;
+  handleForgotPassword: () => void;
 }

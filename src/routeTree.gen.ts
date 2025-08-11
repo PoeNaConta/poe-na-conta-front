@@ -14,6 +14,8 @@ import { Route as rootRoute } from './pages/__root';
 import { Route as WithSidebarLayoutLayoutImport } from './pages/_with-sidebar-layout/layout';
 import { Route as VerifyEmailIndexImport } from './pages/verify-email/index';
 import { Route as LoginIndexImport } from './pages/login/index';
+import { Route as ResetPasswordNewPasswordIndexImport } from './pages/reset-password/new-password/index';
+import { Route as ResetPasswordsendEmailIndexImport } from './pages/reset-password/(send-email)/index';
 import { Route as WithSidebarLayoutTransactionsIndexImport } from './pages/_with-sidebar-layout/transactions/index';
 import { Route as WithSidebarLayoutProfileIndexImport } from './pages/_with-sidebar-layout/profile/index';
 import { Route as WithSidebarLayoutCategoriesIndexImport } from './pages/_with-sidebar-layout/categories/index';
@@ -37,6 +39,20 @@ const LoginIndexRoute = LoginIndexImport.update({
   path: '/login/',
   getParentRoute: () => rootRoute,
 } as any);
+
+const ResetPasswordNewPasswordIndexRoute =
+  ResetPasswordNewPasswordIndexImport.update({
+    id: '/reset-password/new-password/',
+    path: '/reset-password/new-password/',
+    getParentRoute: () => rootRoute,
+  } as any);
+
+const ResetPasswordsendEmailIndexRoute =
+  ResetPasswordsendEmailIndexImport.update({
+    id: '/reset-password/(send-email)/',
+    path: '/reset-password/',
+    getParentRoute: () => rootRoute,
+  } as any);
 
 const WithSidebarLayoutTransactionsIndexRoute =
   WithSidebarLayoutTransactionsIndexImport.update({
@@ -120,6 +136,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof WithSidebarLayoutTransactionsIndexImport;
       parentRoute: typeof WithSidebarLayoutLayoutImport;
     };
+    '/reset-password/(send-email)/': {
+      id: '/reset-password/(send-email)/';
+      path: '/reset-password';
+      fullPath: '/reset-password';
+      preLoaderRoute: typeof ResetPasswordsendEmailIndexImport;
+      parentRoute: typeof rootRoute;
+    };
+    '/reset-password/new-password/': {
+      id: '/reset-password/new-password/';
+      path: '/reset-password/new-password';
+      fullPath: '/reset-password/new-password';
+      preLoaderRoute: typeof ResetPasswordNewPasswordIndexImport;
+      parentRoute: typeof rootRoute;
+    };
   }
 }
 
@@ -155,6 +185,8 @@ export interface FileRoutesByFullPath {
   '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
   '/profile': typeof WithSidebarLayoutProfileIndexRoute;
   '/transactions': typeof WithSidebarLayoutTransactionsIndexRoute;
+  '/reset-password': typeof ResetPasswordsendEmailIndexRoute;
+  '/reset-password/new-password': typeof ResetPasswordNewPasswordIndexRoute;
 }
 
 export interface FileRoutesByTo {
@@ -164,6 +196,8 @@ export interface FileRoutesByTo {
   '/categories': typeof WithSidebarLayoutCategoriesIndexRoute;
   '/profile': typeof WithSidebarLayoutProfileIndexRoute;
   '/transactions': typeof WithSidebarLayoutTransactionsIndexRoute;
+  '/reset-password': typeof ResetPasswordsendEmailIndexRoute;
+  '/reset-password/new-password': typeof ResetPasswordNewPasswordIndexRoute;
 }
 
 export interface FileRoutesById {
@@ -175,6 +209,8 @@ export interface FileRoutesById {
   '/_with-sidebar-layout/categories/': typeof WithSidebarLayoutCategoriesIndexRoute;
   '/_with-sidebar-layout/profile/': typeof WithSidebarLayoutProfileIndexRoute;
   '/_with-sidebar-layout/transactions/': typeof WithSidebarLayoutTransactionsIndexRoute;
+  '/reset-password/(send-email)/': typeof ResetPasswordsendEmailIndexRoute;
+  '/reset-password/new-password/': typeof ResetPasswordNewPasswordIndexRoute;
 }
 
 export interface FileRouteTypes {
@@ -186,7 +222,9 @@ export interface FileRouteTypes {
     | '/'
     | '/categories'
     | '/profile'
-    | '/transactions';
+    | '/transactions'
+    | '/reset-password'
+    | '/reset-password/new-password';
   fileRoutesByTo: FileRoutesByTo;
   to:
     | '/login'
@@ -194,7 +232,9 @@ export interface FileRouteTypes {
     | '/'
     | '/categories'
     | '/profile'
-    | '/transactions';
+    | '/transactions'
+    | '/reset-password'
+    | '/reset-password/new-password';
   id:
     | '__root__'
     | '/_with-sidebar-layout'
@@ -203,7 +243,9 @@ export interface FileRouteTypes {
     | '/_with-sidebar-layout/(home)/'
     | '/_with-sidebar-layout/categories/'
     | '/_with-sidebar-layout/profile/'
-    | '/_with-sidebar-layout/transactions/';
+    | '/_with-sidebar-layout/transactions/'
+    | '/reset-password/(send-email)/'
+    | '/reset-password/new-password/';
   fileRoutesById: FileRoutesById;
 }
 
@@ -211,12 +253,16 @@ export interface RootRouteChildren {
   WithSidebarLayoutLayoutRoute: typeof WithSidebarLayoutLayoutRouteWithChildren;
   LoginIndexRoute: typeof LoginIndexRoute;
   VerifyEmailIndexRoute: typeof VerifyEmailIndexRoute;
+  ResetPasswordsendEmailIndexRoute: typeof ResetPasswordsendEmailIndexRoute;
+  ResetPasswordNewPasswordIndexRoute: typeof ResetPasswordNewPasswordIndexRoute;
 }
 
 const rootRouteChildren: RootRouteChildren = {
   WithSidebarLayoutLayoutRoute: WithSidebarLayoutLayoutRouteWithChildren,
   LoginIndexRoute: LoginIndexRoute,
   VerifyEmailIndexRoute: VerifyEmailIndexRoute,
+  ResetPasswordsendEmailIndexRoute: ResetPasswordsendEmailIndexRoute,
+  ResetPasswordNewPasswordIndexRoute: ResetPasswordNewPasswordIndexRoute,
 };
 
 export const routeTree = rootRoute
@@ -231,7 +277,9 @@ export const routeTree = rootRoute
       "children": [
         "/_with-sidebar-layout",
         "/login/",
-        "/verify-email/"
+        "/verify-email/",
+        "/reset-password/(send-email)/",
+        "/reset-password/new-password/"
       ]
     },
     "/_with-sidebar-layout": {
@@ -264,6 +312,12 @@ export const routeTree = rootRoute
     "/_with-sidebar-layout/transactions/": {
       "filePath": "_with-sidebar-layout/transactions/index.tsx",
       "parent": "/_with-sidebar-layout"
+    },
+    "/reset-password/(send-email)/": {
+      "filePath": "reset-password/(send-email)/index.tsx"
+    },
+    "/reset-password/new-password/": {
+      "filePath": "reset-password/new-password/index.tsx"
     }
   }
 }

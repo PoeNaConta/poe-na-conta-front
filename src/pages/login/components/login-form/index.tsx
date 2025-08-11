@@ -13,6 +13,7 @@ export default function LoginForm({
   errorMessage,
   handleLogin,
   handleChange,
+  handleForgotPassword,
 }: LoginFormProps) {
   const FormWrapper = useCallback<CustomStackAsProp>(
     ({ className, children }) => (
@@ -66,7 +67,7 @@ export default function LoginForm({
           </Button>
         }
         secondaryButton={
-          <Button link fake>
+          <Button link onClick={handleForgotPassword}>
             Esqueceu a senha?
           </Button>
         }

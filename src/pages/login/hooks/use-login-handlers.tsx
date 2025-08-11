@@ -21,6 +21,10 @@ export default function useLoginHandlers() {
     [],
   );
 
+  const handleForgotPassword = useCallback(() => {
+    redirect({ to: '/reset-password' });
+  }, []);
+
   const handleLogin = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
@@ -46,5 +50,12 @@ export default function useLoginHandlers() {
     userLoginBodyRef.current = userLoginBody;
   }, [userLoginBody]);
 
-  return { isLoading, userLoginBody, errorMessage, handleLogin, handleChange };
+  return {
+    isLoading,
+    userLoginBody,
+    errorMessage,
+    handleLogin,
+    handleChange,
+    handleForgotPassword,
+  };
 }
