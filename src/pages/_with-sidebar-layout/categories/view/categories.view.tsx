@@ -21,7 +21,7 @@ export default function Categories({
       <Stack fullWidth align="stretch" space="xxl">
         <Stack direction="row">
           <Input
-            placeholder="buscar..."
+            placeholder="Adicionar ou buscar..."
             value={searchValue}
             onChange={handleChangeSearch}
           />
