@@ -7,17 +7,25 @@ function SelectBase({
   options,
   onOptionSelected,
 }: SelectBaseProps) {
+  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const selectedIndex = event.target.selectedIndex;
+    const option = options[selectedIndex - (placeholder ? 1 : 0)];
+    if (option) {
+      onOptionSelected(option, selectedIndex);
+    }
+  };
+
   return (
-    <select required defaultValue="">
+    <select required defaultValue="" onChange={handleChange}>
       {placeholder && (
         <option value="" disabled hidden>
           {placeholder}
         </option>
       )}
 
-      {options.map((option, optionIndex) => (
+      {options.map((option) => (
         <option
-          onClick={() => onOptionSelected(option, optionIndex)}
+          //onClick={() => onOptionSelected(option, optionIndex)}
           value={option.value}
           key={option.value}
         >
